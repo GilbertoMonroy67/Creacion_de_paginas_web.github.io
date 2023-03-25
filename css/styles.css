@@ -58,6 +58,7 @@ header ul li:hover{
     border: 1px solid rgb(132, 100, 20);
     border-radius: 20px;
     color: rgb(215, 155, 1);
+    padding: 8px;
 }
 #logo{
     width: 100px;
@@ -147,16 +148,19 @@ main .social-icons .social-icons{
     width: 100%;
     height: 100%;
 }
-@media (min-width:640px){
+@media (min-width:400px){
+    header ul{
+        font-size: 12px;
+    }
     #hero .informacion-contenedor{
-        font-size: 24px;
+        font-size: 12px;
     }
     main{
-        font-size: 20px;
+        font-size: 16px;
     }
     #hero .informacion-contenedor #foto-personal{
-        width: 400px;
-        height: 400px;
+        width: 150px;
+        height: 150px;
         margin-right: 52px;
     }
 }

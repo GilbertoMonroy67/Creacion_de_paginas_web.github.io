@@ -54,7 +54,6 @@ header ul li{
 header ul li:hover{
     cursor: pointer;
     width: auto;
-    height: 24px;
     border: 1px solid rgb(132, 100, 20);
     border-radius: 20px;
     color: rgb(215, 155, 1);

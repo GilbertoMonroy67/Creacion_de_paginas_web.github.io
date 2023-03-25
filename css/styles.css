@@ -148,7 +148,7 @@ main .social-icons .social-icons{
     width: 100%;
     height: 100%;
 }
-@media (min-width:400px){
+@media (max-width:400px){
     header ul{
         font-size: 12px;
     }

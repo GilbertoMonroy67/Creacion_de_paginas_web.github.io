@@ -1,3 +1,17 @@
+:root{
+    --white: #FFFFFF;
+    --black: #000000;
+    --very-light-pink: #c7c7c7;
+    --text-input-fied:#f7f7f7;
+    --hospital-green: #acd9b2;
+    --sm:14px;
+    --md:16px;
+    --lg:18px;
+}
+body{
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
 *{
     margin:0 ;
     padding: 0;
@@ -5,30 +19,33 @@
 }
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background: rgb(69, 69, 69);
+    background: white;
 }
 /* aqui hay estilos generales */
 .image-container{
     display: flex;
+    
 }
 
 .image-container img {
     width: 100%;
+    border-bottom: 4px solid rgb(202, 143, 14);
 }
 
 /* estilos del header */
 header{
     display: flex;
-    background: rgb(69, 69, 69);
+    background: white;
     padding: 10px 50px;
-    border-bottom: 4px solid black;
+    border-bottom: 4px solid rgb(202, 143, 14);
 }
 header ul{
     list-style: none;
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: aliceblue;
+    color: black;
+    font-weight: bold;
     width: 100%;
 }
 header ul li{
@@ -49,7 +66,7 @@ header ul li:hover{
 
 #logo img{
     border-radius: 100%;
-    border: 3px solid black;
+    border: 3px solid rgb(139, 96, 3);
 }
 #logo img:hover{
     cursor: pointer;
@@ -132,7 +149,7 @@ main .social-icons .social-icons{
 }
 @media (min-width:640px){
     #hero .informacion-contenedor{
-        font-size: 32px;
+        font-size: 24px;
     }
     main{
         font-size: 20px;

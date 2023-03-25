@@ -158,6 +158,9 @@ main .social-icons .social-icons{
     main{
         font-size: 16px;
     }
+    #hero .informacion-contenedor .informacion span{
+        margin-bottom: 40px;
+    }
     #hero .informacion-contenedor #foto-personal{
         width: 150px;
         height: 150px;

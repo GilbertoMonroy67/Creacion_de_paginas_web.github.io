@@ -47,9 +47,11 @@ header ul{
     color: black;
     font-weight: bold;
     width: 100%;
+    align-content: space-between;
 }
 header ul li{
     margin-left: auto;
+    font-size: 24px;
 }
 header ul li:hover{
     cursor: pointer;
@@ -65,8 +67,9 @@ header ul li:hover{
 }
 
 #logo img{
-    border-radius: 100%;
+    border-radius: 50%;
     border: 3px solid rgb(139, 96, 3);
+    object-fit: cover;
 }
 #logo img:hover{
     cursor: pointer;
@@ -93,12 +96,14 @@ header ul li:hover{
 }
 
 #hero .informacion-contenedor #foto-personal{
-    width: 200px;
-    height: 200px;
+    margin-right: 40px;
+    width: 400px;
+    height: 400px;
 }
 
 #hero .informacion-contenedor #foto-personal img{
-    border-radius: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 #hero .informacion-contenedor #foto-personal img:hover{
     cursor: pointer;
@@ -108,7 +113,7 @@ header ul li:hover{
     margin-left: 24px;
     font-weight: bold;
     width: calc(100% - 200px);
-    /* font-size: 40px; */
+    font-size: 32px;
 }
 
 #hero .informacion-contenedor .informacion span{
@@ -119,7 +124,11 @@ header ul li:hover{
 
 /* Estilos del main */
 main{
-    padding: 100px;
+    padding: 20px;
+    border: 8px solid rgb(139, 96, 3);
+    border-radius: 12px;
+    margin: 20px;
+    font-size: 24px;
 }
 
 main .social-icons{
@@ -134,8 +143,8 @@ main .social-icons li{
 }
 
 main .social-icons li img{
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
 }
 
 main .social-icons .social-icons{
@@ -151,11 +160,11 @@ main .social-icons .social-icons{
     header ul{
         font-size: 12px;
     }
-    #hero .informacion-contenedor{
+    header ul li{
         font-size: 12px;
     }
-    main{
-        font-size: 16px;
+    #hero .informacion-contenedor .informacion{
+        font-size: 12px;
     }
     #hero .informacion-contenedor .informacion span{
         margin-bottom: 20px;
@@ -164,5 +173,12 @@ main .social-icons .social-icons{
         width: 150px;
         height: 150px;
         margin-right: 52px;
+    }
+    main{
+        font-size: 12px;
+    }
+    main .social-icons li img{
+        width: 50px;
+        height: 50px;
     }
 }

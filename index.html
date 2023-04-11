@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Pagina de presentacion</title>
 </head>
 <body>
@@ -16,15 +19,103 @@
             <img src="./LOGO.png" alt="logo">
         </div>
         <ul>
-            <li>Estudios</li>
-            <li>Tecnologias</li>
+            <li class="certificados">Estudios</li>
+            <li class="tec">Tecnologias</li>
             <li>Proyectos</li>
         </ul>
-    </header>
+        <div id="tec" class="ContenedorTecnologias inactive">
+            <div class="tecnología">
+                <figure>
+                    <img src="./logosTecnologias/HTML5_logo_and_wordmark.svg.png" alt="HTML">
+                </figure>
+                <div class="info-container">
+                    <h1 class="title">HTML</h1>
+                    <p>HTML es el lenguaje con el que se define el contenido de las páginas web. Básicamente se trata de un conjunto de etiquetas que sirven para definir el texto y otros elementos que compondrán una página web, como imágenes, listas, vídeos, etc</p>
+                </div>
+            </div>
+            <div class="tecnología">
+                <figure>
+                    <img src="./logosTecnologias/CSS3_logo_and_wordmark.svg.png" alt="CSS">
+                </figure>
+                <div class="info-container">
+                    <h1 class="title">CSS</h1>
+                    <p>Las hojas de estilo en cascada (CSS, cascading style sheets) permiten crear páginas web atractivas. Pero ¿cómo funcionan realmente? En este artículo explicaremos qué es el CSS con un ejemplo de sintaxis sencillo y describiremos algunos términos clave sobre este lenguaje.</p>
+                </div>
+            </div>
+            <div class="tecnología">
+                <figure>
+                    <img src="./logosTecnologias/JavaScript-logo.png" alt="JavaScript">
+                </figure>
+                <div class="info-container">
+                    <h1 class="title">JavaScript</h1>
+                    <p">JavaScript es un lenguaje de programación que los desarrolladores utilizan para hacer páginas web interactivas. Desde actualizar fuentes de redes sociales a mostrar animaciones y mapas interactivos, las funciones de JavaScript pueden mejorar la experiencia del usuario de un sitio web.</p>
+                </div>
+            </div>
+            <div class="tecnología">
+                <figure>
+                    <img src="./logosTecnologias/badge-escmascript-historia-92707485-a3f2-4946-91f0-fb0291f5887d.png" alt="EcmaScript6">
+                </figure>
+                <div class="info-container">
+                    <h1 class="title">ECMAScript 6-7</h1>
+                    <p">ECMAScript es un lenguaje creado, junto a JS, por Brendan Eich en la empresa de Netscape. A su vez, este se utilizó por primera vez en el Navigator 2.0 browser. Ahora mismo, se utiliza en muchos navegadores de World Wide Web, que ayuda al scripting del lado del cliente.</p>
+                </div>
+            </div>
+        </div>
 
+        <div id="certificados" class="contenedorCertificados inactive">
+            <div class="certificado">
+                <figure>
+                    <img src="./Certificados/ComputacionBasica.jpeg" alt="CursoDeComputacionBasica">
+                </figure>
+                <h1 class="title">CURSO DE COMPUTACION BASICA</h1>
+            </div>
+            <div class="certificado">
+                <figure>
+                    <img src="./Certificados/algoritmosYDiagramasDeFlujo.jpeg" alt="algoritmosYDiagramasDeFlujo">
+                </figure>
+                <h1 class="title">ALGORITMOS Y DIAGRAMAS DE FLUJO</h1>
+            </div>
+            <div class="certificado">
+                <figure>
+                    <img src="./Certificados/funcionesYEstructurasDeControl.jpeg" alt="funcionesYEstructurasDeControl">
+                </figure>
+                <h1 class="title">FUNCIONES Y ESTRUCTURAS DE CONTROL</h1>
+            </div>
+            <div class="certificado">
+                <figure>
+                    <img src="./Certificados/LenguajesDeProgramacion.jpeg" alt="LenguajesDeProgramacion">
+                </figure>
+                <h1 class="title">LENGUAJES DE PROGRAMACION</h1>
+            </div>
+            <div class="certificado">
+                <figure>
+                    <img src="./Certificados/frontendDeveloper.jpeg" alt="frontendDeveloper">
+                </figure>
+                <h1 class="title">FRONTEND DEVELOPER</h1>
+            </div>
+            <div class="certificado">
+                <figure>
+                    <img src="./Certificados/practicoDeFrontendDeveloper.jpeg" alt="practicoDeFrontendDeveloper">
+                </figure>
+                <h1 class="title">CURSO PRACTICO DE FRONTEND DEVELOPER</h1>
+            </div>
+            <div class="certificado">
+                <figure>
+                    <img src="./Certificados/basicoDeJavaScript.jpeg" alt="basicoDeJavaScript">
+                </figure>
+                <h1 class="title">CURSO BASICO DE JAVASCRIPT</h1>
+            </div>
+            <div class="certificado">
+                <figure>
+                    <img src="./Certificados/practicoDeJavaScript.jpeg" alt="practicoDeJavaScript">
+                </figure>
+                <h1 class="title">CURSO PRACTICO DE JAVASCRIPT</h1>
+            </div>
+        </div>
+    </header>
     <section id="hero" >
         <div class="image-container" id="fondo">
-            <img src="./26507.jpg" alt="Fondo">
+            <img src="./binary-code-background-digital-binary-data-with-streaming-digital-code-futuristic-cyberspace-concept-of-coding-or-hacker-crypto-d.jpg" alt="Fondo">
         </div>
 
         <div class="informacion-contenedor">
@@ -86,5 +177,6 @@
                 </a></li>
             </ul>
     </main>
+    <script src="./Js/main.js"></script>
 </body>
 </html>

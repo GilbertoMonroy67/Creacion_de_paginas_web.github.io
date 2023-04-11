@@ -10,7 +10,10 @@
 }
 body{
     margin: 0;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+}
+.inactive{
+    display: none;
 }
 *{
     margin:0 ;
@@ -18,8 +21,8 @@ body{
     box-sizing: border-box;
 }
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    background: white;
+    font-family: 'Orbitron', sans-serif;
+    background: rgb(77, 102, 155);
 }
 /* aqui hay estilos generales */
 .image-container{
@@ -29,15 +32,15 @@ body{
 
 .image-container img {
     width: 100%;
-    border-bottom: 4px solid rgb(202, 143, 14);
+    border-bottom: 4px solid rgb(249, 249, 249);
 }
 
 /* estilos del header */
 header{
     display: flex;
-    background: white;
+    background: rgb(44, 58, 88);
     padding: 10px 50px;
-    border-bottom: 4px solid rgb(202, 143, 14);
+    border-bottom: 4px solid rgb(244, 244, 243);
 }
 header ul{
     list-style: none;
@@ -56,9 +59,9 @@ header ul li{
 header ul li:hover{
     cursor: pointer;
     width: auto;
-    border: 1px solid rgb(132, 100, 20);
+    border: 1px solid rgb(253, 252, 251);
     border-radius: 20px;
-    color: rgb(215, 155, 1);
+    color: rgb(250, 250, 250);
     padding: 8px;
 }
 #logo{
@@ -68,12 +71,93 @@ header ul li:hover{
 
 #logo img{
     border-radius: 50%;
-    border: 3px solid rgb(139, 96, 3);
+    border: 3px solid rgb(62, 16, 112);
     object-fit: cover;
 }
 #logo img:hover{
     cursor: pointer;
 }
+/* tecnologias */
+.ContenedorTecnologias{
+    position: absolute;
+    z-index: 1;
+    margin-left: 350px;
+    top: 120px;
+    width: 800px;
+    height: auto;
+    background-color: rgb(1, 42, 87);
+    border: 2px solid white;
+    border-radius: 16px;
+}
+.tecnología{
+    display: flex;
+    margin: 16px;
+}
+.tecnología .info-container{
+    display: block;
+    border: 2px solid var(--white);
+    border-radius: 12px;
+    margin-left: 12px;
+    color: var(--white);
+}
+.info-container h1{
+    font-weight: bold;
+}
+
+.tecnología figure{
+    display: grid;
+    align-items: center;
+}
+
+.tecnología img{
+    width: 100px;
+    height: 100px;
+    background: rgb(4, 4, 158);
+    border: 2px solid white;
+    border-radius: 12px;
+}
+
+/* certificados */
+.contenedorCertificados{
+    position: absolute;
+    z-index: 1;
+    margin-left: 10px;
+    top: 120px;
+    width: 800px;
+    height: auto;
+    background-color: rgb(1, 42, 87);
+    border: 2px solid white;
+    border-radius: 16px;
+}
+.certificado{
+    display: flex;
+    margin: 16px;
+}
+.certificado h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--white);
+    border-radius: 12px;
+    margin-left: 12px;
+    color: var(--white);
+    font-weight: bold;
+    
+}
+
+.certificado figure{
+    display: grid;
+    align-items: center;
+}
+
+.certificado img{
+    width: 200px;
+    height: 200px;
+    background: rgb(4, 4, 158);
+    border: 2px solid white;
+    border-radius: 12px;
+}
+
 /* estilos del hero */
 #hero{
     position: relative;
@@ -91,7 +175,7 @@ header ul li:hover{
     left: 0;
     display: flex;
     width: 100%;
-    color: black;
+    color: var(--white);
     padding: 0 50px;
 }
 
@@ -125,7 +209,7 @@ header ul li:hover{
 /* Estilos del main */
 main{
     padding: 20px;
-    border: 8px solid rgb(139, 96, 3);
+    border: 8px solid rgb(249, 249, 247);
     border-radius: 12px;
     margin: 20px;
     font-size: 24px;
@@ -162,6 +246,33 @@ main .social-icons .social-icons{
     }
     header ul li{
         font-size: 12px;
+    }
+    .ContenedorTecnologias{
+        z-index: 1;
+        margin-left: -50px;
+        top: 120px;
+        width: 100%;
+        height: auto;
+        background-color: rgb(1, 42, 87);
+        border: 2px solid white;
+        border-radius: 16px;
+    }
+    .contenedorCertificados{
+        z-index: 1;
+        margin-left: -50px;
+        top: 120px;
+        width: 100%;
+        height: auto;
+        background-color: rgb(1, 42, 87);
+        border: 2px solid white;
+        border-radius: 16px;
+    }
+    .certificado h1{
+        font-size: 20px;
+    }
+    .certificado img{
+        width: 100px;
+        height: 100px;
     }
     #hero .informacion-contenedor .informacion{
         font-size: 12px;

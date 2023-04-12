@@ -32,7 +32,12 @@ body{
 
 .image-container img {
     width: 100%;
+    height: 400px;
     border-bottom: 4px solid rgb(249, 249, 249);
+}
+.image-container #logo {
+    width: 100px;
+    height: 100px;
 }
 
 /* estilos del header */
@@ -142,6 +147,7 @@ header ul li:hover{
     margin-left: 12px;
     color: var(--white);
     font-weight: bold;
+    font-size: 30px;
     
 }
 
@@ -211,7 +217,7 @@ header ul li:hover{
 #hero .informacion-contenedor{
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
     left: 0;
     display: flex;
     width: 100%;
@@ -221,6 +227,7 @@ header ul li:hover{
 
 #hero .informacion-contenedor #foto-personal{
     margin-right: 40px;
+    margin-top: -70px;
     width: 400px;
     height: 400px;
 }
@@ -252,7 +259,7 @@ main{
     border: 8px solid rgb(249, 249, 247);
     border-radius: 12px;
     margin: 20px;
-    font-size: 24px;
+    font-size: 16px;
 }
 
 main .social-icons{
@@ -267,8 +274,8 @@ main .social-icons li{
 }
 
 main .social-icons li img{
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
 }
 
 main .social-icons .social-icons{
@@ -287,6 +294,10 @@ main .social-icons .social-icons{
     header ul li{
         font-size: 12px;
     }
+    #hero .informacion-contenedor #foto-personal img{
+        width: 200px;
+        height: 200px;
+    }
     .ContenedorTecnologias{
         z-index: 1;
         margin-left: -50px;
@@ -296,6 +307,9 @@ main .social-icons .social-icons{
         background-color: rgb(1, 42, 87);
         border: 2px solid white;
         border-radius: 16px;
+    }
+    .tecnología .info-container{
+        font-size: 12px;
     }
     .contenedorCertificados{
         z-index: 1;
@@ -308,7 +322,7 @@ main .social-icons .social-icons{
         border-radius: 16px;
     }
     .certificado h1{
-        font-size: 20px;
+        font-size: 18px;
     }
     .certificado img{
         width: 100px;
@@ -317,6 +331,9 @@ main .social-icons .social-icons{
     .ContenedorProyectos{
         margin-left: -50px;
         width: 100%;
+    }
+    .proyecto .info-container{
+        font-size: 14px;
     }
     #hero .informacion-contenedor .informacion{
         font-size: 12px;

@@ -158,6 +158,46 @@ header ul li:hover{
     border-radius: 12px;
 }
 
+/* proyectos */
+.ContenedorProyectos{
+    position: absolute;
+    z-index: 1;
+    margin-left: 650px;
+    top: 120px;
+    width: 800px;
+    height: auto;
+    background-color: rgb(1, 42, 87);
+    border: 2px solid white;
+    border-radius: 16px;
+}
+.proyecto{
+    display: flex;
+    margin: 16px;
+}
+.proyecto .info-container{
+    display: block;
+    border: 2px solid var(--white);
+    border-radius: 12px;
+    margin-left: 12px;
+    color: var(--white);
+}
+.info-container h1{
+    font-weight: bold;
+}
+
+.proyecto figure{
+    display: grid;
+    align-items: center;
+}
+
+.proyecto img{
+    width: 100px;
+    height: 100px;
+    background: rgb(248, 248, 248);
+    border: 2px solid white;
+    border-radius: 12px;
+}
+
 /* estilos del hero */
 #hero{
     position: relative;
@@ -273,6 +313,10 @@ main .social-icons .social-icons{
     .certificado img{
         width: 100px;
         height: 100px;
+    }
+    .ContenedorProyectos{
+        margin-left: -50px;
+        width: 100%;
     }
     #hero .informacion-contenedor .informacion{
         font-size: 12px;

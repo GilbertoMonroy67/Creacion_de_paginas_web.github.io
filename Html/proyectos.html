@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.ContenedorProyectos{
+    position: absolute;
+    z-index: 1;
+    margin-left: 350px;
+    top: 120px;
+    width: 800px;
+    height: auto;
+    background-color: rgb(1, 42, 87);
+    border: 2px solid white;
+    border-radius: 16px;
+}
+.proyecto{
+    display: flex;
+    margin: 16px;
+}
+.proyecto .info-container{
+    display: block;
+    border: 2px solid var(--white);
+    border-radius: 12px;
+    margin-left: 12px;
+    color: var(--white);
+}
+.info-container h1{
+    font-weight: bold;
+}
+
+.proyecto figure{
+    display: grid;
+    align-items: center;
+}
+
+.proyecto img{
+    width: 100px;
+    height: 100px;
+    background: rgb(4, 4, 158);
+    border: 2px solid white;
+    border-radius: 12px;
+}
+</style>
+<body>
+    <div id="pry" class="ContenedorProyectos inactive">
+        <div class="proyecto">
+            <figure>
+                <img src="/Platzi_YardSale_Logos/logo_yard_sale.svg" alt="logo_yard_sale">
+            </figure>
+            <div class="info-container">
+                <h1 class="title">Yard Sale</h1>
+                <p>Yard Sale es una aplicacion que tiene como objetivo hecer un Market Place</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

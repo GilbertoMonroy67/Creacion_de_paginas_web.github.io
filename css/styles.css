@@ -293,6 +293,14 @@ main .social-icons .social-icons{
     }
     header ul li{
         font-size: 12px;
+        margin-left: 8px;
+    }
+    #logo{
+        margin-left: -20px;
+    }
+    #logo img{
+        width: 80px;
+        height: 80px;
     }
     #hero .informacion-contenedor #foto-personal img{
         width: 200px;

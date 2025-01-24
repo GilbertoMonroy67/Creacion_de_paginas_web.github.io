@@ -118,7 +118,7 @@ header ul li:hover{
     width: 100px;
     height: 100px;
     background: #6C757D;
-    border: 2px solid white;
+    border: 2px solid rgb(155, 134, 42);
     border-radius: 12px;
 }
 
@@ -160,7 +160,7 @@ header ul li:hover{
     width: 200px;
     height: 200px;
     background: #6C757D;
-    border: 2px solid white;
+    border: 2px solid rgb(155, 134, 42);
     border-radius: 12px;
 }
 
@@ -328,6 +328,28 @@ main .social-icons .social-icons{
         width: 80px;
         height: 80px;
     }
+    #hero .informacion-contenedor{
+        padding: 0 20px;
+    }
+    #hero .informacion p,
+    #hero .informacion h1{
+        width: 200px;
+        margin-right: 200px;
+        padding-right: 20px;
+    }
+    #hero .informacion h1{
+        font-size: 16px;
+    }
+    #hero .informacion p{
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+    }
+    #hero .informacion-contenedor #foto-personal {
+        width: 150px;
+        height: 150px;
+        margin-right: 0;
+    }
     #hero .informacion-contenedor #foto-personal img{
         width: 200px;
         height: 200px;
@@ -338,8 +360,6 @@ main .social-icons .social-icons{
         top: 120px;
         width: 100%;
         height: auto;
-        background-color: rgb(1, 42, 87);
-        border: 2px solid white;
         border-radius: 16px;
     }
     .tecnología .info-container{
@@ -351,8 +371,6 @@ main .social-icons .social-icons{
         top: 120px;
         width: 100%;
         height: auto;
-        background-color: rgb(1, 42, 87);
-        border: 2px solid white;
         border-radius: 16px;
     }
     .certificado h1{
@@ -374,11 +392,6 @@ main .social-icons .social-icons{
     }
     #hero .informacion-contenedor .informacion span{
         margin-bottom: 20px;
-    }
-    #hero .informacion-contenedor #foto-personal{
-        width: 150px;
-        height: 150px;
-        margin-right: 52px;
     }
     main{
         font-size: 12px;

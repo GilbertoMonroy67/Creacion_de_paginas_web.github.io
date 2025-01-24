@@ -22,7 +22,7 @@ body{
 }
 body{
     font-family: 'Orbitron', sans-serif;
-    background: rgb(77, 102, 155);
+    background: rgb(#1D3557);
 }
 /* aqui hay estilos generales */
 .image-container{
@@ -43,7 +43,7 @@ body{
 /* estilos del header */
 header{
     display: flex;
-    background: rgb(44, 58, 88);
+    background: rgb(#1D3557);
     padding: 10px 50px;
     border-bottom: 4px solid rgb(244, 244, 243);
 }
@@ -70,7 +70,7 @@ header ul li:hover{
     padding: 8px;
 }
 #logo{
-    width: 100px;
+    width: 200px;
     height: 100px;
 }
 
@@ -86,12 +86,12 @@ header ul li:hover{
 .ContenedorTecnologias{
     position: absolute;
     z-index: 1;
-    margin-left: 350px;
+    margin-left: 950px;
     top: 120px;
     width: 800px;
     height: auto;
-    background-color: rgb(1, 42, 87);
-    border: 2px solid white;
+    background-color: #c7c7c7;
+    border: 2px solid rgb(155, 134, 42);
     border-radius: 16px;
 }
 .tecnología{
@@ -100,10 +100,10 @@ header ul li:hover{
 }
 .tecnología .info-container{
     display: block;
-    border: 2px solid var(--white);
+    border: 2px solid rgb(155, 134, 42);
     border-radius: 12px;
     margin-left: 12px;
-    color: var(--white);
+    color: var(--black);
 }
 .info-container h1{
     font-weight: bold;
@@ -117,7 +117,7 @@ header ul li:hover{
 .tecnología img{
     width: 100px;
     height: 100px;
-    background: rgb(4, 4, 158);
+    background: #6C757D;
     border: 2px solid white;
     border-radius: 12px;
 }
@@ -130,8 +130,8 @@ header ul li:hover{
     top: 120px;
     width: 800px;
     height: auto;
-    background-color: rgb(1, 42, 87);
-    border: 2px solid white;
+    background-color: #c7c7c7;
+    border: 2px solid rgb(155, 134, 42);
     border-radius: 16px;
 }
 .certificado{
@@ -142,10 +142,10 @@ header ul li:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--white);
+    border: 2px solid rgb(155, 134, 42);
     border-radius: 12px;
     margin-left: 12px;
-    color: var(--white);
+    color: var(--black);
     font-weight: bold;
     font-size: 30px;
     
@@ -159,7 +159,7 @@ header ul li:hover{
 .certificado img{
     width: 200px;
     height: 200px;
-    background: rgb(4, 4, 158);
+    background: #6C757D;
     border: 2px solid white;
     border-radius: 12px;
 }
@@ -168,12 +168,12 @@ header ul li:hover{
 .ContenedorProyectos{
     position: absolute;
     z-index: 1;
-    margin-left: 650px;
+    margin-left: 1040px;
     top: 120px;
     width: 800px;
     height: auto;
-    background-color: rgb(1, 42, 87);
-    border: 2px solid white;
+    background-color: #E9ECEF;
+    border: 2px solid rgb(155, 134, 42);
     border-radius: 16px;
 }
 .proyecto{
@@ -182,10 +182,10 @@ header ul li:hover{
 }
 .proyecto .info-container{
     display: block;
-    border: 2px solid var(--white);
+    border: 2px solid rgb(155, 134, 42);
     border-radius: 12px;
     margin-left: 12px;
-    color: var(--white);
+    color: var(--black);
 }
 .info-container h1{
     font-weight: bold;
@@ -199,8 +199,8 @@ header ul li:hover{
 .proyecto img{
     width: 100px;
     height: 100px;
-    background: rgb(248, 248, 248);
-    border: 2px solid white;
+    background: var(--white);
+    border: 2px solid rgb(155, 134, 42);
     border-radius: 12px;
 }
 
@@ -214,6 +214,24 @@ header ul li:hover{
     width: 100%;
 }
 
+#hero .informacion h1{
+    width: 520px;
+    padding-left: 20px;
+    display: block;
+    align-content: center;
+    background-color: rgb(156, 143, 83);;
+    border-radius: 40px;
+    color: #E9ECEF;
+}
+#hero .informacion p{
+    width: 472px;
+    padding-left: 10px;
+    display: block;
+    align-items: center;
+    background-color: rgb(156, 143, 83);;
+    border-radius: 40px;
+    color: #E9ECEF;
+}
 #hero .informacion-contenedor{
     position: absolute;
     top: 50%;
@@ -256,7 +274,7 @@ header ul li:hover{
 /* Estilos del main */
 main{
     padding: 20px;
-    border: 8px solid rgb(249, 249, 247);
+    border: 8px solid rgb(155, 134, 42);
     border-radius: 12px;
     margin: 20px;
     font-size: 16px;
@@ -286,6 +304,14 @@ main .social-icons .social-icons{
     border-radius: 10px;
     width: 100%;
     height: 100%;
+}
+@media (max-width: 1240px){
+    .ContenedorTecnologias{
+        margin-left: 220px;
+    }
+    .ContenedorProyectos{
+        margin-left: 220px;
+    }
 }
 @media (max-width:640px){
     header ul{

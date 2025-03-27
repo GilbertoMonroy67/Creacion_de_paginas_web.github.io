@@ -1,404 +1,209 @@
-:root{
+:root {
     --white: #FFFFFF;
     --black: #000000;
-    --very-light-pink: #c7c7c7;
-    --text-input-fied:#f7f7f7;
-    --hospital-green: #acd9b2;
-    --sm:14px;
-    --md:16px;
-    --lg:18px;
+    --primary: #333;
+    --secondary: #f4b400;
+    --font-primary: 'Quicksand', sans-serif;
+    --font-secondary: 'Orbitron', sans-serif;
+    --font-tertiary: 'Raleway', sans-serif;
 }
-body{
+
+* {
     margin: 0;
-    font-family: 'Orbitron', sans-serif;
-}
-.inactive{
-    display: none;
-}
-*{
-    margin:0 ;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family: 'Orbitron', sans-serif;
-    background: rgb(--white);
-}
-/* aqui hay estilos generales */
-.image-container{
-    display: flex;
-    
+
+body {
+    font-family: var(--font-tertiary);
+    background-color: var(--white);
+    color: var(--black);
+    line-height: 1.6;
 }
 
-.image-container img {
-    width: 100%;
-    height: 400px;
-    border-bottom: 4px solid rgb(249, 249, 249);
-}
-.image-container #logo {
-    width: 100px;
-    height: 100px;
+.inactive {
+    display: none;
 }
 
-/* estilos del header */
-header{
+/* Header */
+header {
     display: flex;
-    background: rgb(#1D3557);
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary);
     padding: 10px 50px;
-    border-bottom: 4px solid rgb(244, 244, 243);
 }
-header ul{
+
+header ul {
     list-style: none;
-    text-decoration: none;
     display: flex;
     align-items: center;
-    color: black;
-    font-weight: bold;
-    width: 100%;
-    align-content: space-between;
 }
-header ul li{
-    margin-left: auto;
+
+header ul li {
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: var(--white);
     font-size: 24px;
 }
-header ul li:hover{
-    cursor: pointer;
-    width: auto;
-    border: 1px solid rgb(253, 252, 251);
-    border-radius: 20px;
-    color: rgb(250, 250, 250);
-    padding: 8px;
-}
-#logo{
-    width: 200px;
-    height: 100px;
+
+header ul li a:hover {
+    color: var(--secondary);
 }
 
-#logo img{
-    border-radius: 50%;
-    border: 3px solid rgb(62, 16, 112);
+header .image-container img {
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-}
-#logo img:hover{
-    cursor: pointer;
-}
-/* tecnologias */
-.ContenedorTecnologias{
-    position: absolute;
-    z-index: 1;
-    margin-left: 950px;
-    top: 120px;
-    width: 800px;
-    height: auto;
-    background-color: #c7c7c7;
-    border: 2px solid rgb(155, 134, 42);
-    border-radius: 16px;
-}
-.tecnología{
-    display: flex;
-    margin: 16px;
-}
-.tecnología .info-container{
-    display: block;
-    border: 2px solid rgb(155, 134, 42);
-    border-radius: 12px;
-    margin-left: 12px;
-    color: var(--black);
-}
-.info-container h1{
-    font-weight: bold;
+    border-radius: 50%;
 }
 
-.tecnología figure{
-    display: grid;
-    align-items: center;
-}
-
-.tecnología img{
-    width: 100px;
-    height: 100px;
-    background: #6C757D;
-    border: 2px solid rgb(155, 134, 42);
-    border-radius: 12px;
-}
-
-/* certificados */
-.contenedorCertificados{
-    position: absolute;
-    z-index: 1;
-    margin-left: 10px;
-    top: 120px;
-    width: 800px;
-    height: auto;
-    background-color: #c7c7c7;
-    border: 2px solid rgb(155, 134, 42);
-    border-radius: 16px;
-}
-.certificado{
-    display: flex;
-    margin: 16px;
-}
-.certificado h1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid rgb(155, 134, 42);
-    border-radius: 12px;
-    margin-left: 12px;
-    color: var(--black);
-    font-weight: bold;
-    font-size: 30px;
-    
-}
-
-.certificado figure{
-    display: grid;
-    align-items: center;
-}
-
-.certificado img{
-    width: 200px;
-    height: 200px;
-    background: #6C757D;
-    border: 2px solid rgb(155, 134, 42);
-    border-radius: 12px;
-}
-
-/* proyectos */
-.ContenedorProyectos{
-    position: absolute;
-    z-index: 1;
-    margin-left: 1040px;
-    top: 120px;
-    width: 800px;
-    height: auto;
-    background-color: #E9ECEF;
-    border: 2px solid rgb(155, 134, 42);
-    border-radius: 16px;
-}
-.proyecto{
-    display: flex;
-    margin: 16px;
-}
-.proyecto .info-container{
-    display: block;
-    border: 2px solid rgb(155, 134, 42);
-    border-radius: 12px;
-    margin-left: 12px;
-    color: var(--black);
-}
-.info-container h1{
-    font-weight: bold;
-}
-
-.proyecto figure{
-    display: grid;
-    align-items: center;
-}
-
-.proyecto img{
-    width: 100px;
-    height: 100px;
-    background: var(--white);
-    border: 2px solid rgb(155, 134, 42);
-    border-radius: 12px;
-}
-
-/* estilos del hero */
-#hero{
+/* Hero */
+#hero {
     position: relative;
+    text-align: center;
+    margin-bottom: 150px;
 }
 
-#hero #fondo{
-    display: inline-block;
+#hero .image-container img {
     width: 100%;
-}
-
-#hero .informacion h1{
-    width: 520px;
-    padding-left: 20px;
-    display: block;
-    align-content: center;
-    background-color: rgb(156, 143, 83);;
-    border-radius: 40px;
-    color: #E9ECEF;
-}
-#hero .informacion p{
-    width: 472px;
-    padding-left: 10px;
-    display: block;
-    align-items: center;
-    background-color: rgb(156, 143, 83);;
-    border-radius: 40px;
-    color: #E9ECEF;
-}
-#hero .informacion-contenedor{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-40%);
-    left: 0;
-    display: flex;
-    width: 100%;
-    color: var(--white);
-    padding: 0 50px;
-}
-
-#hero .informacion-contenedor #foto-personal{
-    margin-right: 40px;
-    margin-top: -70px;
-    width: 400px;
-    height: 400px;
-}
-
-#hero .informacion-contenedor #foto-personal img{
-    border-radius: 50%;
+    height: 420px;
     object-fit: cover;
 }
-#hero .informacion-contenedor #foto-personal img:hover{
-    cursor: pointer;
-}
 
-#hero .informacion-contenedor .informacion{
-    margin-left: 24px;
-    font-weight: bold;
-    width: calc(100% - 200px);
-    font-size: 32px;
-}
-
-#hero .informacion-contenedor .informacion span{
-    display: inline-block;
-    color: rgb(56, 54, 54);
-    margin-bottom: 70px;
-}
-
-/* Estilos del main */
-main{
+#hero .informacion-contenedor {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
-    border: 8px solid rgb(155, 134, 42);
     border-radius: 12px;
-    margin: 20px;
+    width: 10%;
+    width: 500px;
+}
+
+#hero .informacion h1 {
+    font-size: 24px;
+}
+
+#hero .informacion span {
+    display: block;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#hero .informacion p {
     font-size: 16px;
 }
 
-main .social-icons{
+/* Main */
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.tech-list-container h3 {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 30px;
+}
+
+/* Social Icons */
+.social-icons {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
     list-style: none;
+    margin-top: 20px;
 }
 
-main .social-icons li{
-    margin-left: 32px;
+.social-icons li {
+    margin: 0 15px;
 }
 
-main .social-icons li img{
-    width: 50px;
-    height: 50px;
+.social-icons li img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
 }
 
-main .social-icons .social-icons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
+.social-icons li img:hover {
+    transform: scale(1.1);
 }
-@media (max-width: 1240px){
-    .ContenedorTecnologias{
-        margin-left: 220px;
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    /* Tablet */
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
     }
-    .ContenedorProyectos{
-        margin-left: 220px;
+
+    header ul {
+        margin-top: 10px;
+    }
+
+    #hero .informacion-contenedor {
+        width: 40%;
+        padding: 15px;
+        margin-top: 32px;
+    }
+
+    main {
+        margin-top: 180px;
+        width: 90%;
     }
 }
-@media (max-width:640px){
-    header ul{
-        font-size: 12px;
+
+@media (max-width: 768px) {
+    /* Celular */
+    header {
+        padding: 10px 20px;
     }
-    header ul li{
-        font-size: 12px;
-        margin-left: 8px;
-    }
-    #logo{
-        margin-left: -20px;
-    }
-    #logo img{
+
+    header .image-container img {
         width: 80px;
         height: 80px;
     }
-    #hero .informacion-contenedor{
-        padding: 0 20px;
+
+    header ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
     }
-    #hero .informacion p,
-    #hero .informacion h1{
-        width: 200px;
-        margin-right: 200px;
-        padding-right: 20px;
+
+    #hero .informacion-contenedor {
+        width: 50%;
+        top: 50%;
+        padding: 10px;
+        margin-top: 50px;
     }
-    #hero .informacion h1{
-        font-size: 16px;
-    }
-    #hero .informacion p{
-        font-size: 12px;
-        display: flex;
-        justify-content: center;
-    }
-    #hero .informacion-contenedor #foto-personal {
-        width: 150px;
-        height: 150px;
-        margin-right: 0;
-    }
-    #hero .informacion-contenedor #foto-personal img{
-        width: 200px;
-        height: 200px;
-    }
-    .ContenedorTecnologias{
-        z-index: 1;
-        margin-left: -50px;
-        top: 120px;
-        width: 100%;
-        height: auto;
-        border-radius: 16px;
-    }
-    .tecnología .info-container{
-        font-size: 12px;
-    }
-    .contenedorCertificados{
-        z-index: 1;
-        margin-left: -50px;
-        top: 120px;
-        width: 100%;
-        height: auto;
-        border-radius: 16px;
-    }
-    .certificado h1{
+
+    #hero .informacion h1 {
         font-size: 18px;
     }
-    .certificado img{
-        width: 100px;
-        height: 100px;
-    }
-    .ContenedorProyectos{
-        margin-left: -50px;
-        width: 100%;
-    }
-    .proyecto .info-container{
+
+    #hero .informacion p {
         font-size: 14px;
     }
-    #hero .informacion-contenedor .informacion{
-        font-size: 12px;
+
+    main {
+        margin-top: 140px;
+        width: 90%;
     }
-    #hero .informacion-contenedor .informacion span{
-        margin-bottom: 20px;
+
+    .social-icons li img {
+        width: 30px;
+        height: 30px;
     }
-    main{
-        font-size: 12px;
-    }
-    main .social-icons li img{
-        width: 50px;
-        height: 50px;
-    }
-    
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificados</title>
+    <link rel="stylesheet" href="/css/certificados.css">
+    <head></head>
+    <script src="../../Js/certificates.js"></script>
+</head>
+<body>
+    <header>
+        <div class="image-container" id="logo">
+
+        <img id="logo" src="/Logos/Logo pagina.jpg" alt="logo">
+
+        </div>
+        <div>
+            <ul>
+                <li class="in"><a href="/">Inicio</a></li>
+                <li class="certificados">Estudios</li>
+            </ul>
+        </div>
+
+    </header>
+    <main>
+        <div class="certificates">
+            <h3>Certificates</h3>
+            <div class="cert-list" id="cert-list"></div>
+        </div>
+    </main>
+</body>
+<script>
+    const certHtml = generateHtmlCertCards();
+    const certDiv = document.getElementById('cert-list');
+
+    certDiv.innerHTML = certHtml;
+</script>
+</html>

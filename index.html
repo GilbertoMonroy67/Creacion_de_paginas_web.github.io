@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="./Js/technologies.js"></script>
+    <link rel="stylesheet" href="./css/tech.css">
     <title>Pagina Personal Gilberto Alejandro Monroy Morales</title>
 </head>
 <body>
@@ -19,99 +22,8 @@
             <img id="logo" src="./Logos/Logo pagina.jpg" alt="logo">
         </div>
         <ul>
-            <li class="certificados">Estudios</li>
-            <li class="tec">Tecnologias</li>
-            <li class="pry">Proyectos</li>
+            <li class="certificados"><a href="./Html/pages/certificates.html">Estudios</a></li>
         </ul>
-        <div id="tec" class="ContenedorTecnologias inactive">
-            <div class="tecnología">
-                <figure>
-                    <img src="./logosTecnologias/HTML5_logo_and_wordmark.svg.png" alt="HTML">
-                </figure>
-                <div class="info-container">
-                    <h1 class="title">HTML</h1>
-                    <p>HTML es el lenguaje con el que se define el contenido de las páginas web. Básicamente se trata de un conjunto de etiquetas que sirven para definir el texto y otros elementos que compondrán una página web, como imágenes, listas, vídeos, etc</p>
-                </div>
-            </div>
-            <div class="tecnología">
-                <figure>
-                    <img src="./logosTecnologias/CSS3_logo_and_wordmark.svg.png" alt="CSS">
-                </figure>
-                <div class="info-container">
-                    <h1 class="title">CSS</h1>
-                    <p>Las hojas de estilo en cascada (CSS, cascading style sheets) permiten crear páginas web atractivas. Pero ¿cómo funcionan realmente? En este artículo explicaremos qué es el CSS con un ejemplo de sintaxis sencillo y describiremos algunos términos clave sobre este lenguaje.</p>
-                </div>
-            </div>
-            <div class="tecnología">
-                <figure>
-                    <img src="./logosTecnologias/JavaScript-logo.png" alt="JavaScript">
-                </figure>
-                <div class="info-container">
-                    <h1 class="title">JavaScript</h1>
-                    <p">JavaScript es un lenguaje de programación que los desarrolladores utilizan para hacer páginas web interactivas. Desde actualizar fuentes de redes sociales a mostrar animaciones y mapas interactivos, las funciones de JavaScript pueden mejorar la experiencia del usuario de un sitio web.</p>
-                </div>
-            </div>
-            <div class="tecnología">
-                <figure>
-                    <img src="./logosTecnologias/badge-escmascript-historia-92707485-a3f2-4946-91f0-fb0291f5887d.png" alt="EcmaScript6">
-                </figure>
-                <div class="info-container">
-                    <h1 class="title">ECMAScript 6-7-8</h1>
-                    <p">ECMAScript es un lenguaje creado, junto a JS, por Brendan Eich en la empresa de Netscape. A su vez, este se utilizó por primera vez en el Navigator 2.0 browser. Ahora mismo, se utiliza en muchos navegadores de World Wide Web, que ayuda al scripting del lado del cliente.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="certificados" class="contenedorCertificados inactive">
-            <div class="certificado">
-                <figure>
-                    <img src="./Certificados/ComputacionBasica.jpeg" alt="CursoDeComputacionBasica">
-                </figure>
-                <h1 class="title">CURSO DE COMPUTACION BASICA</h1>
-            </div>
-            <div class="certificado">
-                <figure>
-                    <img src="./Certificados/algoritmosYDiagramasDeFlujo.jpeg" alt="algoritmosYDiagramasDeFlujo">
-                </figure>
-                <h1 class="title">ALGORITMOS Y DIAGRAMAS DE FLUJO</h1>
-            </div>
-            <div class="certificado">
-                <figure>
-                    <img src="./Certificados/funcionesYEstructurasDeControl.jpeg" alt="funcionesYEstructurasDeControl">
-                </figure>
-                <h1 class="title">FUNCIONES Y ESTRUCTURAS DE CONTROL</h1>
-            </div>
-            <div class="certificado">
-                <figure>
-                    <img src="./Certificados/LenguajesDeProgramacion.jpeg" alt="LenguajesDeProgramacion">
-                </figure>
-                <h1 class="title">LENGUAJES DE PROGRAMACION</h1>
-            </div>
-            <div class="certificado">
-                <figure>
-                    <img src="./Certificados/frontendDeveloper.jpeg" alt="frontendDeveloper">
-                </figure>
-                <h1 class="title">FRONTEND DEVELOPER</h1>
-            </div>
-            <div class="certificado">
-                <figure>
-                    <img src="./Certificados/practicoDeFrontendDeveloper.jpeg" alt="practicoDeFrontendDeveloper">
-                </figure>
-                <h1 class="title">CURSO PRACTICO DE FRONTEND DEVELOPER</h1>
-            </div>
-            <div class="certificado">
-                <figure>
-                    <img src="./Certificados/basicoDeJavaScript.jpeg" alt="basicoDeJavaScript">
-                </figure>
-                <h1 class="title">CURSO BASICO DE JAVASCRIPT</h1>
-            </div>
-            <div class="certificado">
-                <figure>
-                    <img src="./Certificados/practicoDeJavaScript.jpeg" alt="practicoDeJavaScript">
-                </figure>
-                <h1 class="title">CURSO PRACTICO DE JAVASCRIPT</h1>
-            </div>
-        </div>
 
         <div id="pry" class="ContenedorProyectos inactive">
             <div class="proyecto">
@@ -127,7 +39,7 @@
     </header>
     <section id="hero" >
         <div class="image-container" id="fondo">
-            <img src="./Fotos/Fondo pagina.jpg" alt="Fondo">
+            <img src="./Fotos/pexels-markusspiske-2004161.jpg" alt="Fondo">
         </div>
 
         <div class="informacion-contenedor">
@@ -170,6 +82,10 @@
             Referencias:
             Disponibles a petición.</p>
 
+            <div class="tech-list-container">
+                <center><h3>Technologies</h3></center>
+                <div id="tech-list"></div>
+            </div>
             <ul class="social-icons">
                 
                 <li><a href="https://www.linkedin.com/in/gilberto-alejandro-monroy-morales-230a97265/" target="_blank" class="social-icon" id="Linkedin">
@@ -189,6 +105,11 @@
                 </a></li>
             </ul>
     </main>
-    <script src="./Js/main.js"></script>
 </body>
+<script>
+    const techHtml = generateHtmlTechCards();
+    const Div = document.getElementById('tech-list');
+
+    Div.innerHTML = techHtml;
+</script>
 </html>

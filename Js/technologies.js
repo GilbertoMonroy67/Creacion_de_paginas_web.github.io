@@ -2,35 +2,35 @@ const techData =
 [
     {
         "name":"Javascript",
-        "image":"./logostecnologias/JavaScript-logo.png"
+        "image":"./logosTecnologias/JavaScript-logo.png"
     },
     {
         "name":"Html",
-        "image":"./logostecnologias/HTML5_logo_and_wordmark.svg.png"
+        "image":"./logosTecnologias/HTML5_logo_and_wordmark.svg.png"
     },
     {
         "name":"CSS",
-        "image":"./logostecnologias/CSS3_logo_and_wordmark.svg.png"
+        "image":"./logosTecnologias/CSS3_logo_and_wordmark.svg.png"
     },
     {
         "name":"Python",
-        "image":"./logostecnologias/Python-logo-notext.svg.png"
+        "image":"./logosTecnologias/Python-logo-notext.svg.png"
     },
     {
         "name":"C#",
-        "image":"./logostecnologias/Csharp_Logo.png"
+        "image":"./logosTecnologias/Csharp_Logo.png"
     },
     {
         "name":"SQL",
-        "image":"./logostecnologias/4299956.png"
+        "image":"./logosTecnologias/4299956.png"
     },
     {
         "name":"Git",
-        "image":"./logostecnologias/git.png"
+        "image":"./logosTecnologias/git.png"
     },
     {
         "name":"Linux Terminal",
-        "image":"./logostecnologias/linux-logo.png"
+        "image":"./logosTecnologias/linux-logo.png"
     },
 ]
 

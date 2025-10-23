@@ -142,6 +142,7 @@ main {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+
     /* Tablet */
     header {
         flex-direction: column;
@@ -165,7 +166,8 @@ main {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 360px) {
+
     /* Celular */
     header {
         padding: 10px 20px;
@@ -183,18 +185,26 @@ main {
     }
 
     #hero .informacion-contenedor {
-        width: 50%;
-        top: 50%;
+        width: 80%;
+        top: 56%;
         padding: 10px;
         margin-top: 50px;
     }
 
     #hero .informacion h1 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     #hero .informacion p {
         font-size: 14px;
+    }
+
+    #hero .informacion span {
+        font-size: 16px;
+    }
+
+    #hero .image-container img {
+        height: 252px;
     }
 
     main {

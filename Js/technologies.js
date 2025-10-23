@@ -1,6 +1,18 @@
 const techData =
 [
     {
+        "name":"C#",
+        "image":"./logosTecnologias/Csharp_Logo.png"
+    },
+    {
+        "name":".NET",
+        "image":"./logosTecnologias/NET.png"
+    },
+    {
+        "name":"Unity",
+        "image":"./logosTecnologias/Unity.png"
+    },
+    {
         "name":"Javascript",
         "image":"./logosTecnologias/JavaScript-logo.png"
     },
@@ -13,20 +25,24 @@ const techData =
         "image":"./logosTecnologias/CSS3_logo_and_wordmark.svg.png"
     },
     {
-        "name":"Python",
-        "image":"./logosTecnologias/Python-logo-notext.svg.png"
-    },
-    {
-        "name":"C#",
-        "image":"./logosTecnologias/Csharp_Logo.png"
-    },
-    {
         "name":"SQL",
         "image":"./logosTecnologias/4299956.png"
     },
     {
+        "name":"MySQL",
+        "image":"./logosTecnologias/MySQL.png"
+    },
+    {
+        "name":"PostgreSQL",
+        "image":"./logosTecnologias/PostgreSQL.png"
+    },
+    {
         "name":"Git",
         "image":"./logosTecnologias/git.png"
+    },
+    {
+        "name":"Ubuntu",
+        "image":"./logosTecnologias/Ubuntu.png"
     },
     {
         "name":"Linux Terminal",

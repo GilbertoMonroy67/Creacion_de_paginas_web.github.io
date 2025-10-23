@@ -166,7 +166,7 @@ main {
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 600px) {
 
     /* Celular */
     header {

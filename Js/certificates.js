@@ -1,16 +1,28 @@
 const certData =
 [
     {
+        "title":"Curso de Buenas Prácticas y Código Limpio en C#",
+        "image":"../../Certificados/Curso de Buenas Prácticas y Código Limpio en CSharp.jpg"
+    },
+    {
+        "title":"Curso de pensamiento lógico: Algoritmos y diagramas de flujo",
+        "image":"../../Certificados/Curso Basico de Programacion con Csharp.jpg"
+    },
+    {
+        "title":"Curso de Bases de Datos con SQL",
+        "image":"../../Certificados/Curso de Bases de Datos con SQL.jpg"
+    },
+    {
+        "title":"Curso de Fundamentos de Ingeniería de Software",
+        "image":"../../Certificados/Curso de Fundamentos de Ingeniería de Software.jpg"
+    },
+    {
         "title":"Curso de pensamiento lógico: Algoritmos y diagramas de flujo",
         "image":"../../Certificados/algoritmosYDiagramasDeFlujo.jpeg"
     },
     {
-        "title":"Curso básico de javascript",
-        "image":"../../Certificados/basicoDeJavaScript.jpeg"
-    },
-    {
-        "title":"Curso de computación básica",
-        "image":"../../Certificados/ComputacionBasica.jpeg"
+        "title":"Curso de Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones",
+        "image":"../../Certificados/Curso de Pensamiento Lógico Manejo de Datos, Estructuras y Funciones.jpg"
     },
     {
         "title":"Curso de pensamiento lógico: Funciones y estructuras de control",
@@ -19,6 +31,14 @@ const certData =
     {
         "title":"Curso de pensamiento lógico: Lenguajes de programación",
         "image":"../../Certificados/LenguajesDeProgramacion.jpeg"
+    },
+    {
+        "title":"Curso básico de javascript",
+        "image":"../../Certificados/basicoDeJavaScript.jpeg"
+    },
+    {
+        "title":"Curso de computación básica",
+        "image":"../../Certificados/ComputacionBasica.jpeg"
     },
     {
         "title":"Curso practico de frontend developer",
@@ -75,6 +95,10 @@ const certData =
     {
         "title":"Curso Gratis de Introducción a la Inteligencia Artificial",
         "image":"../../Certificados/Curso Gratis de Introducción a la Inteligencia Artificial.png"
+    },
+    {
+        "title":"Curso de JavaScript Engine (V8) y el Navegador",
+        "image":"../../Certificados/Curso de JavaScript Engine (V8) y el Navegador.jpg"
     },
 ]
 

@@ -3,37 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificados</title>
-    <link rel="stylesheet" href="/css/certificados.css">
-    <head></head>
-    <script src="../../Js/certificates.js"></script>
+    <title>Formación | Gilberto Monroy</title>
+
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/certificados.css">
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="../../Js/certificates.js" defer></script>
 </head>
+
 <body>
-    <header>
-        <div class="image-container" id="logo">
 
-        <img id="logo" src="/Logos/Logo pagina.jpg" alt="logo">
-
+<header>
+        <div class="logo">
+            <span class="logo-mark">GM</span>
         </div>
-        <div>
+
+        <nav>
             <ul>
-                <li class="in"><a href="/">Inicio</a></li>
-                <li class="proyectos"><a href="./Proyectos.html">Proyectos</a></li>
+                <li>
+                    <a href="../../index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="./Proyectos.html">Proyectos</a>
+                </li>
             </ul>
-        </div>
-
+        </nav>
     </header>
-    <main>
-        <div class="certificates">
-            <h3>Certificates</h3>
-            <div class="cert-list" id="cert-list"></div>
-        </div>
-    </main>
-</body>
-<script>
-    const certHtml = generateHtmlCertCards();
-    const certDiv = document.getElementById('cert-list');
 
-    certDiv.innerHTML = certHtml;
+<main class="cert-page">
+
+    <section class="cert-hero">
+        <h1 class="glitch" data-text="Formación">Formación</h1>
+        <p>
+            Preparación técnica enfocada en desarrollo backend con C# y .NET,
+            complementada con fundamentos sólidos de software.
+        </p>
+    </section>
+
+    <section class="cert-section">
+        <h2>Formación técnica – C# / Backend</h2>
+        <div id="main-certs"></div>
+    </section>
+
+    <section class="cert-section secondary">
+        <h2>Formación complementaria</h2>
+        <div id="other-certs"></div>
+    </section>
+
+</main>
+
+<!-- Modal -->
+<div id="certModal" class="modal">
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="">
+        <button class="close-btn" onclick="closeModal()">Cerrar</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("main-certs").innerHTML =
+            generateHtmlCertCards(mainCerts);
+
+        document.getElementById("other-certs").innerHTML =
+            generateHtmlCertCards(otherCerts);
+    });
 </script>
+
+</body>
 </html>

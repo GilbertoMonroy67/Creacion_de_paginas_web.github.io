@@ -1,38 +1,88 @@
 .tech-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto;
     padding: 20px;
 }
 
+
 .tech-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    max-width: 150px;
+
+    background: rgba(99, 109, 141, 0.85);
+    border: 1px solid rgba(0, 246, 255, 0.15);
+    border-radius: 14px;
+
+    padding: 18px 10px;
+    min-width: 130px;
+
+    box-shadow: 0 0 15px rgba(0, 246, 255, 0.08);
+    transition: 
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.tech-role {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(11, 15, 26, 0.92);
+    color: var(--text-muted);
+
+    font-size: 12px;
+    padding: 12px;
     text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
 }
 
 .tech-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(0, 246, 255, 0.25);
+    border-color: var(--neon-cyan);
 }
 
+.tech-card:hover .tech-role {
+    opacity: 1;
+}
+
+.tech-card:hover .tech-image,
+.tech-card:hover .tech-title {
+    opacity: 0.15;
+}
+
+
 .tech-image {
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
     object-fit: contain;
     margin-bottom: 10px;
+    transition: opacity 0.3s ease;
 }
 
 .tech-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.tech-card:hover .tech-image,
+.tech-card:hover .tech-title {
+    opacity: 0.15;
+}
+.tech-category{
+    display: block;
+    text-align: center;
 }

@@ -1,20 +1,12 @@
-const certData =
+const mainCerts =
 [
     {
         "title":"Curso de Buenas Prácticas y Código Limpio en C#",
         "image":"../../Certificados/Curso de Buenas Prácticas y Código Limpio en CSharp.jpg"
     },
     {
-        "title":"Curso de pensamiento lógico: Algoritmos y diagramas de flujo",
+        "title":"Curso Basico de Programacion con C#",
         "image":"../../Certificados/Curso Basico de Programacion con Csharp.jpg"
-    },
-    {
-        "title":"Curso de Bases de Datos con SQL",
-        "image":"../../Certificados/Curso de Bases de Datos con SQL.jpg"
-    },
-    {
-        "title":"Curso de Fundamentos de Ingeniería de Software",
-        "image":"../../Certificados/Curso de Fundamentos de Ingeniería de Software.jpg"
     },
     {
         "title":"Curso de pensamiento lógico: Algoritmos y diagramas de flujo",
@@ -33,12 +25,20 @@ const certData =
         "image":"../../Certificados/LenguajesDeProgramacion.jpeg"
     },
     {
-        "title":"Curso básico de javascript",
-        "image":"../../Certificados/basicoDeJavaScript.jpeg"
+        "title":"Curso de Bases de Datos con SQL",
+        "image":"../../Certificados/Curso de Bases de Datos con SQL.jpg"
     },
     {
-        "title":"Curso de computación básica",
-        "image":"../../Certificados/ComputacionBasica.jpeg"
+        "title":"Curso de Fundamentos de Ingeniería de Software",
+        "image":"../../Certificados/Curso de Fundamentos de Ingeniería de Software.jpg"
+    }
+];
+
+const otherCerts =
+[
+    {
+        "title":"Curso básico de javascript",
+        "image":"../../Certificados/basicoDeJavaScript.jpeg"
     },
     {
         "title":"Curso practico de frontend developer",
@@ -53,20 +53,8 @@ const certData =
         "image":"../../Certificados/asincronismo con javascript.png"
     },
     {
-        "title":"Curso de chat GPT",
-        "image":"../../Certificados/curso de chatGPT.png"
-    },
-    {
-        "title":"Curso de Creación de Páginas Web con Wordpress y No-code",
-        "image":"../../Certificados/Curso de Creación de Páginas Web con Wordpress y No-code.png"
-    },
-    {
         "title":"Curso de Frontend Developer",
         "image":"../../Certificados/Curso de Frontend Developer.png"
-    },
-    {
-        "title":"Curso de Introducción a Ciberseguridad: Prevención de Ataques Informáticos",
-        "image":"../../Certificados/Curso de Introducción a Ciberseguridad_Prevención de Ataques Informáticos.png"
     },
     {
         "title":"Curso de Introducción a la Terminal y Línea de Comandos",
@@ -89,53 +77,56 @@ const certData =
         "image":"../../Certificados/Curso de Webpack.png"
     },
     {
-        "title":"Curso Gratis de Ciberseguridad: Simulador Práctico en WhatsApp",
-        "image":"../../Certificados/Curso Gratis de Ciberseguridad_Simulador Práctico en WhatsApp.png"
+        "title":"Curso de JavaScript Engine (V8) y el Navegador",
+        "image":"../../Certificados/Curso de JavaScript Engine (V8) y el Navegador.jpg"
+    },
+    {
+        "title":"Curso de computación básica",
+        "image":"../../Certificados/ComputacionBasica.jpeg"
+    },
+    {
+        "title":"Curso de chat GPT",
+        "image":"../../Certificados/curso de chatGPT.png"
     },
     {
         "title":"Curso Gratis de Introducción a la Inteligencia Artificial",
         "image":"../../Certificados/Curso Gratis de Introducción a la Inteligencia Artificial.png"
     },
     {
-        "title":"Curso de JavaScript Engine (V8) y el Navegador",
-        "image":"../../Certificados/Curso de JavaScript Engine (V8) y el Navegador.jpg"
+        "title":"Curso de Creación de Páginas Web con Wordpress y No-code",
+        "image":"../../Certificados/Curso de Creación de Páginas Web con Wordpress y No-code.png"
     },
-]
+    {
+        "title":"Curso de Introducción a Ciberseguridad: Prevención de Ataques Informáticos",
+        "image":"../../Certificados/Curso de Introducción a Ciberseguridad_Prevención de Ataques Informáticos.png"
+    },
+    {
+        "title":"Curso Gratis de Ciberseguridad: Simulador Práctico en WhatsApp",
+        "image":"../../Certificados/Curso Gratis de Ciberseguridad_Simulador Práctico en WhatsApp.png"
+    },
+];
 
+function generateHtmlCertCards(certList) {
+    let html = '<div class="cert-container">';
 
-
-function generateHtmlCertCards() {
-        let html = '<div class="cert-container">';
-    
-        certData.forEach((cert, index) => {
-            html += `
-                <div class="cert-card" onclick="openModal('${cert.image}', '${cert.title}')">
-                    <span class="cert-title">${cert.title}</span>
-                    <img class="cert-image" src="${cert.image}" alt="${cert.title}">
-                </div>
-            `;
-        });
-    
-        html += '</div>';
-    
+    certList.forEach((cert) => {
         html += `
-            <div id="certModal" class="modal">
-                <div class="modal-content">
-                    <img id="modalImage" src="" alt="">
-                    <button class="close-btn" onclick="closeModal()">Cerrar</button>
-                </div>
+            <div class="cert-card" onclick="openModal('${cert.image}', '${cert.title}')">
+                <span class="cert-title">${cert.title}</span>
+                <img class="cert-image" src="${cert.image}" alt="${cert.title}">
             </div>
         `;
-    
-        return html;
-    }
+    });
 
+    html += '</div>';
+    return html;
+}
 
 function openModal(imageSrc, title) {
     const modal = document.getElementById("certModal");
     const modalImage = document.getElementById("modalImage");
 
-    modal.style.display = "flex"; // Mostrar modal
+    modal.style.display = "flex";
     modalImage.src = imageSrc;
     modalImage.alt = title;
 }

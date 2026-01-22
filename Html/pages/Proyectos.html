@@ -1,39 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificados</title>
-    <link rel="stylesheet" href="/css/proyectos.css">
-    <head></head>
-    <script src="../../Js/proyects.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyectos | Gilberto Monroy</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/proyectos.css">
+
+    <!-- Fonts (las mismas del index) -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <div class="image-container" id="logo">
 
-        <img id="logo" src="/Logos/Logo pagina.jpg" alt="logo">
-
+<header>
+        <div class="logo">
+            <span class="logo-mark">GM</span>
         </div>
-        <div>
+
+        <nav>
             <ul>
-                <li class="in"><a href="/">Inicio</a></li>
-                <li class="certificados"><a href="./certificates.html">Estudios</a></li>
+                <li>
+                    <a href="../../index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="./certificates.html">Formación</a>
+                </li>
             </ul>
-        </div>
-
+        </nav>
     </header>
-    <main>
-        <div class="certificates">
-            <h3>Projects</h3>
-            <div class="cert-list" id="cert-list"></div>
-        </div>
-    </main>
-</body>
-<script>
-    const certHtml = generateHtmlCertCards();
-    const certDiv = document.getElementById('cert-list');
 
-    certDiv.innerHTML = certHtml;
+<main class="projects-page">
+
+    <section class="projects-hero">
+        <h1 class="glitch" data-text="Proyectos">Proyectos</h1>
+        <p>
+            Proyectos personales y académicos enfocados en desarrollo backend,
+            lógica de negocio y bases sólidas de ingeniería de software.
+        </p>
+    </section>
+
+    <section id="projects-list"></section>
+
+</main>
+
+<!-- JS -->
+<script src="../../Js/proyects.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('projects-list');
+        container.innerHTML = generateHtmlProjectCards();
+    });
 </script>
+
+</body>
 </html>

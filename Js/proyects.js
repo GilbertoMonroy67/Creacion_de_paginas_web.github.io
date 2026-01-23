@@ -4,6 +4,10 @@ const projectsData = [
         image: "../../IMG_Proyectos/Proyecto Login MVC Docker.png"
     },
     {
+        title: "ToDo App con C#, Docker y SQL, Aplicando buenas prácticas y codigo limpio",
+        image: "../../IMG_Proyectos/ToDo_Buenas_Practicas_Y_Codigo_Limpio_Csharp.png"
+    },
+    {
         title: "Videojuego Metroidvania 2D (Unity)",
         image: "../../IMG_Proyectos/Hadamop.png"
     },

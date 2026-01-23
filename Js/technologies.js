@@ -15,7 +15,7 @@ const technologies = [
             {
                 name: "ASP.NET",
                 image: "./logosTecnologias/ASP_Net.png",
-                role: "Controladores, vistas y arquitectura MVC"
+                role: "Desarrollo de aplicaciones web con el framework ASP.NET utilizando la arquitectura Modelo–Vista–Controlador (MVC)."
             },
             {
                 name: "SQL",

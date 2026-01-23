@@ -277,21 +277,51 @@ h1, h2, .hero-title, .role {
    MAIN
 ======================= */
 main {
-    max-width: 1000px;
+    max-width: 90%;
     margin: 20px auto;
     padding: 20px;
     border-radius: 12px;
     background: var(--bg-panel);
     box-shadow: 0 0 30px rgba(0, 246, 255, 0.08);
 }
+#perfil-profesional{
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
 #tech-list{
     margin-top: 40px;
 }
+.tech-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+}
+
 .tech-list-container h3 {
     text-align: center;
     font-size: 22px;
     margin-top: 30px;
 }
+.tech-card {
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(18, 24, 43, 0.9);
+    border: 1px solid var(--neon-cyan);
+    border-radius: 14px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 
 /* =======================
    SOCIAL
@@ -310,6 +340,22 @@ main {
 .social-icons li img {
     width: 40px;
     height: 40px;
+    transition: transform 0.3s;
+}
+.social-icons li:nth-child(1) img {
+    margin-top: 10px;
+}
+.social-icons li:nth-child(2) img {
+    width: 54px;
+    height: 60px;
+    transition: transform 0.3s;
+}
+.social-icons li:nth-child(3) img {
+    margin-top: 10px;
+}
+.social-icons li:nth-child(4) img {
+    width: 64px;
+    height: 60px;
     transition: transform 0.3s;
 }
 

@@ -29,6 +29,10 @@ const mainCerts =
         "image":"../../Certificados/Curso de Bases de Datos con SQL.jpg"
     },
     {
+        "title":"Curso de Fundamentos de Bases de Datos",
+        "image":"../../Certificados/Curso_de_fundamentos_de_bases_de_datos.jpg"
+    },
+    {
         "title":"Curso de Fundamentos de Ingeniería de Software",
         "image":"../../Certificados/Curso de Fundamentos de Ingeniería de Software.jpg"
     }

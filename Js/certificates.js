@@ -9,6 +9,10 @@ const mainCerts =
         "image":"../../Certificados/Curso Basico de Programacion con Csharp.jpg"
     },
     {
+        "title":"CURSO DE PENSAMIENTО LÓGICO",
+        "image":"../../Certificados/Curso_de_pensamiento_logico.png"
+    },
+    {
         "title":"Curso de pensamiento lógico: Algoritmos y diagramas de flujo",
         "image":"../../Certificados/algoritmosYDiagramasDeFlujo.jpeg"
     },

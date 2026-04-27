@@ -8,8 +8,8 @@ const projectsData = [
         image: "../../IMG_Proyectos/ToDo_Buenas_Practicas_Y_Codigo_Limpio_Csharp.png"
     },
     {
-        title: "Videojuego Metroidvania 2D (Unity)",
-        image: "../../IMG_Proyectos/Hadamop.png"
+        title: "Juego de gato funcional en Terminal con C#",
+        image: "../../IMG_Proyectos/Jugo gato.png"
     },
     {
         title: "Videojuego 2D en JavaScript",

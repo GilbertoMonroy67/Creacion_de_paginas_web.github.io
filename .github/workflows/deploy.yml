@@ -41,6 +41,10 @@ jobs:
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
 
+      # Copiar explícitamente el archivo CNAME a la carpeta compilada out
+      - name: Ensure CNAME is in output directory
+        run: cp CNAME ./out/CNAME || echo "gilbertoalejandromonroymorales.com" > ./out/CNAME
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

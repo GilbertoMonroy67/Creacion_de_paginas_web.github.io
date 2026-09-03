@@ -1,138 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Gilberto Monroy | Desarrollador C# .NET</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/tech.css">
-
-    <!-- Google Fonts (solo las usadas) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-
-    <!-- JS -->
-    <script src="./Js/technologies.js" defer></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio de Gilberto Monroy, desarrollador backend junior especializado en C# y .NET.">
+  <title>Gilberto Monroy | Desarrollador Backend Junior</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-    <!-- ================= HEADER ================= -->
-    <header>
-        <div class="logo">
-            <span class="logo-mark">GM</span>
-        </div>
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="./Html/pages/certificates.html">Formación</a>
-                </li>
-                <li>
-                    <a href="./Html/pages/Proyectos.html">Proyectos</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- ================= HERO ================= -->
-    <section id="hero">
-        <div class="hero-content">
-
-            <div class="hero-photo">
-                <img src="./Fotos/Imagen de WhatsApp 2024-11-11 a las 08.34.40_32ca16cf.jpg"
-                    alt="Fotografía profesional de Gilberto Monroy">
-            </div>
-
-            <div class="hero-text">
-                <h1 class="hero-title glitch" data-text="Gilberto Monroy">
-                    Gilberto Monroy
-                </h1>
-
-                <span class="hero-role">
-                    Desarrollador de Software C# / .NET
-                </span>
-
-                <p class="hero-tagline">
-                    Desarrollo de aplicaciones backend con C# y .NET,
-                    enfocado en lógica de negocio, arquitectura limpia y bases de datos.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ================= MAIN ================= -->
-    <main>
-
-        <!-- Perfil profesional -->
-        <section aria-labelledby="perfil-profesional">
-            <p id="perfil-profesional">
-                Desarrollador de Software con enfoque en backend utilizando C# y .NET.
-                Experiencia en Programación Orientada a Objetos, desarrollo de aplicaciones
-                web con ASP.NET y manejo de bases de datos relacionales.
-                He trabajado en proyectos personales y académicos orientados a lógica de negocio,
-                autenticación de usuarios y persistencia de datos,
-                aplicando buenas prácticas de código y estructura.
-            </p>
-        </section>
-
-        <!-- Tecnologías -->
-        <section class="tech-list-container" aria-labelledby="tecnologias">
-            <h3 id="tecnologias">
-                <h3>Stack principal .NET (Backend)</h3>
-            </h3>
-            <div id="tech-list"></div>
-        </section>
-
-        <!-- Redes -->
-        <section aria-label="Redes sociales">
-            <ul class="social-icons">
-                <li>
-                    <a href="https://www.linkedin.com/in/gilberto-alejandro-monroy-morales-230a97265/" target="_blank"
-                        rel="noopener">
-                        <img src="./linkedin.png" alt="LinkedIn">
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://twitter.com/GillMon67" target="_blank" rel="noopener">
-                        <img src="https://static.vecteezy.com/system/resources/previews/042/148/611/non_2x/new-twitter-x-logo-twitter-icon-x-social-media-icon-free-png.png"
-                            alt="Twitter">
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://api.whatsapp.com/send?phone=%2B525626628692&text=Hola%2C+me+gustar%C3%ADa+saber+m%C3%A1s+a+cerca+de+tus+servicios"
-                        target="_blank" rel="noopener">
-                        <img src="./whatsapp.png" alt="WhatsApp">
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://platzi.com/p/gilbertoalejandromonroymorales/" target="_blank" rel="noopener">
-                        <img src="./Platzi_logo.png" alt="Perfil Platzi">
-                    </a>
-                </li>
-            </ul>
-        </section>
-
-    </main>
-
-    <!-- ================= JS ================= -->
-    <script>
-        const techHtml = generateHtmlTechCards();
-        document.getElementById('tech-list').innerHTML = techHtml;
-    </script>
-
-</body>
-
-</html>
+  <header class="site-header"><a class="brand" href="#inicio">GM<span>/</span>DEV</a><nav aria-label="Navegación principal"><a href="#sobre-mi">Sobre mí</a><a href="#proyectos">Proyectos</a><a href="#tecnologias">Tecnologías</a><a href="#certificados">Certificados</a><a href="#contacto">Contacto</a></nav><a class="github" href="https://github.com/GilbertoMonroy67" target="_blank" rel="noreferrer">GitHub ↗</a></header>
+  <main>
+    <section id="inicio" class="hero"><p class="eyebrow">Disponible para mi primera oportunidad profesional</p><h1>Construyo soluciones<br><em>que funcionan.</em></h1><p class="hero-copy">Soy Gilberto Monroy, desarrollador backend junior especializado en C# y .NET. Transformo problemas en software claro, mantenible y útil.</p><div class="actions"><a class="button primary" href="#proyectos">Ver proyectos <span>→</span></a><a class="button secondary" href="public/CV-Gilberto-Monroy.pdf" download>Descargar CV ↓</a></div><div class="hero-meta"><span>01 — Backend / C#</span><span>02 — México · Remoto</span></div></section>
+    <section id="sobre-mi" class="section split"><div><p class="section-label">01 / Sobre mí</p><h2>Curiosidad técnica.<br><em>Enfoque humano.</em></h2></div><div class="copy"><p>Me gusta entender cómo funcionan las cosas y construir experiencias simples para quien las usa. Mi formación combina desarrollo backend, bases de datos y fundamentos de frontend.</p><p>Busco integrarme a un equipo donde pueda aportar desde el primer día, aprender de profesionales y crecer construyendo productos reales.</p></div></section>
+    <section id="proyectos" class="section"><div class="section-heading"><div><p class="section-label">02 / Proyectos</p><h2>Trabajo que<br><em>habla por mí.</em></h2></div><p class="section-intro">Una selección de ejercicios y aplicaciones que muestran cómo aprendo y resuelvo problemas.</p></div><div id="project-track" class="project-track" aria-live="polite"></div><div class="carousel-controls"><button id="prev" aria-label="Proyecto anterior">←</button><span id="counter"></span><button id="next" aria-label="Proyecto siguiente">→</button></div></section>
+    <section id="tecnologias" class="section"><div class="section-heading"><div><p class="section-label">03 / Stack técnico</p><h2>Herramientas para<br><em>construir.</em></h2></div></div><div class="tech-grid" id="tech-grid"></div></section>
+    <section id="certificados" class="section"><div class="section-heading"><div><p class="section-label">04 / Certificados</p><h2>Aprendizaje<br><em>comprobable.</em></h2></div><span class="count">18 cursos</span></div><div class="cert-grid" id="cert-grid"></div></section>
+    <section id="contacto" class="section contact"><p class="section-label">05 / Contacto</p><h2>¿Construimos algo<br><em>juntos?</em></h2><p>Estoy abierto a oportunidades junior, proyectos colaborativos y conversaciones sobre tecnología.</p><div class="actions"><a class="button primary" href="mailto:gilbertoalejandro.monroy@gmail.com">Escribirme por email →</a><a class="button secondary" href="https://www.linkedin.com/in/gilberto-alejandro-monroy-morales-230a97265" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></section>
+  </main><footer><span>© 2025 Gilberto Monroy</span><span>C# · .NET · SQL</span></footer><script src="script.js"></script>
+</body></html>

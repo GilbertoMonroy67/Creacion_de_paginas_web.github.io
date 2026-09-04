@@ -26,22 +26,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Paso 2: Instalar pnpm
+      # Paso 2: Instalar pnpm especificando la versión exacta
       - name: Install pnpm
         uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
-      # Paso 3: Configurar Node.js (versión 22)
+      # Paso 3: Configurar Node.js (versión 22) y la caché de pnpm
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: "pnpm"
 
-      # Paso 4: Instalar dependencias
+      # Paso 4: Instalar las dependencias del proyecto
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      # Paso 5: Compilar el sitio estático de Next.js
+      # Paso 5: Compilar el sitio estático de Next.js (crea la carpeta /out)
       - name: Build static site
         run: pnpm build
 
@@ -49,7 +51,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # Paso 7: Subir los archivos generados en /out
+      # Paso 7: Subir los archivos generados en la carpeta /out
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

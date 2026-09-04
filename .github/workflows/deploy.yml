@@ -21,7 +21,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      # Paso 1: Clonar el código fuente
+      # Paso 1: Obtener el código fuente
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -37,19 +37,19 @@ jobs:
         with:
           node-version: "20"
 
-      # Paso 4: Instalar dependencias ignorando reglas de workspace
+      # Paso 4: Instalar dependencias omitiendo el modo workspace
       - name: Install dependencies
         run: pnpm install --ignore-workspace
 
-      # Paso 5: Compilar el sitio estático en la carpeta /out
+      # Paso 5: Compilar el sitio omitiendo el modo workspace
       - name: Build Next.js site
-        run: pnpm run build
+        run: pnpm --ignore-workspace run build
 
       # Paso 6: Configurar GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # Paso 7: Subir los archivos generados
+      # Paso 7: Subir artefacto compilado
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

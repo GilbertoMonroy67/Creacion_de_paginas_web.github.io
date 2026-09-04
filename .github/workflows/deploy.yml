@@ -22,33 +22,40 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      # Paso 1: Obtener el código fuente del repositorio
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Paso 2: Instalar pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      # Paso 3: Configurar Node.js (versión 22)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
+          cache: "pnpm"
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-
+      # Paso 4: Instalar dependencias
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
+      # Paso 5: Compilar el sitio estático de Next.js
       - name: Build static site
         run: pnpm build
 
+      # Paso 6: Configurar GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # Paso 7: Subir los archivos generados en /out
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './out'
 
+      # Paso 8: Publicar en GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

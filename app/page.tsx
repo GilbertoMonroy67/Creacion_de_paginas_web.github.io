@@ -1,6 +1,7 @@
 'use client'
 
-import { useMemo, useState, type CSSProperties } from 'react'
+import { useMemo, useState, type CSSProperties, type ReactNode } from 'react'
+import { ArrowRight, ArrowUpRight, Award, BookOpen, Boxes, Braces, Briefcase, Database, Download, FolderGit2, GitBranch, GraduationCap, Layers, Mail, MapPin, Menu, MessageCircle, Pause, Play, Search, Server, ShieldCheck, Terminal, Workflow, X } from 'lucide-react'
 
 const linkedinUrl = 'https://www.linkedin.com/in/gilberto-alejandro-monroy-morales-230a97265/'
 const githubUrl = 'https://github.com/GilbertoMonroy67'
@@ -92,13 +93,57 @@ const projects = ([
   { title: 'Ensamblador', type: 'Bajo nivel', problem: 'Explica cómo trabaja el procesador por debajo de los lenguajes de alto nivel.', description: 'Primeros ejercicios en lenguaje ensamblador del curso de arquitectura de computadoras.', stack: ['Assembly'], repo: repo('Ensamblador') },
 ] satisfies Project[]).map((project, index): Project & { number: string } => ({ ...project, number: String(index + 1).padStart(2, '0') }))
 
+const services = [
+  { icon: Server, title: 'APIs REST', text: 'Endpoints con ASP.NET que exponen datos de forma clara, validada y consistente.' },
+  { icon: Braces, title: 'Lógica de negocio en C#', text: 'Clases, servicios y reglas separadas por responsabilidad aplicando POO.' },
+  { icon: Database, title: 'Bases de datos SQL', text: 'Modelado relacional, consultas y persistencia con SQL y Entity Framework.' },
+  { icon: Layers, title: 'Arquitectura MVC', text: 'Aplicaciones web organizadas en modelos, vistas y controladores.' },
+  { icon: ShieldCheck, title: 'Clean Code y SOLID', text: 'Código legible y mantenible que otros desarrolladores pueden entender.' },
+  { icon: GitBranch, title: 'Control de versiones', text: 'Flujo con ramas, commits descriptivos y repositorios públicos en GitHub.' },
+]
+
+const facts = [
+  { value: String(projects.length), label: 'Proyectos en GitHub', icon: FolderGit2 },
+  { value: String(certificates.length), label: 'Cursos certificados', icon: Award },
+  { value: '4', label: 'Lenguajes: C#, C++, JS, SQL', icon: Terminal },
+  { value: '2024', label: 'Construyendo desde', icon: Workflow },
+]
+
+const principles = [
+  { icon: ShieldCheck, label: 'Código limpio' },
+  { icon: Server, label: 'APIs bien diseñadas' },
+  { icon: Database, label: 'Datos consistentes' },
+  { icon: BookOpen, label: 'Aprendizaje continuo' },
+]
+
 const searchItems = [
-  { label: 'Sobre mí', id: 'sobre-mi' }, { label: 'Formación', id: 'formacion' }, { label: 'Proyectos', id: 'proyectos' }, { label: 'Habilidades', id: 'habilidades' }, { label: 'Tecnologías', id: 'tecnologias' }, { label: 'Certificados', id: 'certificados' }, { label: 'Contacto', id: 'contacto' },
+  { label: 'Sobre mí', id: 'sobre-mi' }, { label: 'Servicios', id: 'servicios' }, { label: 'Formación', id: 'formacion' }, { label: 'Proyectos', id: 'proyectos' }, { label: 'Habilidades', id: 'habilidades' }, { label: 'Tecnologías', id: 'tecnologias' }, { label: 'Certificados', id: 'certificados' }, { label: 'Contacto', id: 'contacto' },
   ...projects.map((project) => ({ label: project.title, id: 'proyectos' })),
 ]
 
-function Arrow() { return <span aria-hidden="true" className="arrow">→</span> }
-function GitHubMark() { return <span aria-hidden="true" className="github-mark">GH</span> }
+const navLinks = [['sobre-mi', 'Sobre mí'], ['servicios', 'Servicios'], ['proyectos', 'Proyectos'], ['habilidades', 'Stack'], ['certificados', 'Certificados'], ['contacto', 'Contacto']]
+
+function SectionLabel({ index, children }: { index: string; children: ReactNode }) {
+  return <p className="section-label"><span>{index}</span> {children}</p>
+}
+
+function BrandIcon({ name }: { name: 'github' | 'linkedin' }) {
+  const src = name === 'github' ? 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' : 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg'
+  return <img className={`brand-icon brand-icon-${name}`} src={src} alt="" />
+}
+
+function CodeWindow() {
+  return <div className="code-window" aria-label="Fragmento de código C# que describe al desarrollador">
+    <div className="window-bar"><i /><i /><i /><span>Developer.cs</span></div>
+    <pre><code>
+      <span className="tok-kw">public class</span> <span className="tok-type">Developer</span>{'\n{\n    '}
+      <span className="tok-kw">public string</span> Name <span className="tok-op">=&gt;</span> <span className="tok-str">&quot;Gilberto Monroy&quot;</span>;{'\n    '}
+      <span className="tok-kw">public string</span> Role <span className="tok-op">=&gt;</span> <span className="tok-str">&quot;Backend Developer Jr.&quot;</span>;{'\n    '}
+      <span className="tok-kw">public string</span>[] Stack <span className="tok-op">=&gt;</span> [<span className="tok-str">&quot;C#&quot;</span>, <span className="tok-str">&quot;.NET&quot;</span>, <span className="tok-str">&quot;SQL&quot;</span>];{'\n    '}
+      <span className="tok-kw">public bool</span> OpenToWork <span className="tok-op">=&gt;</span> <span className="tok-kw">true</span>;{'\n}'}
+    </code></pre>
+  </div>
+}
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -108,27 +153,176 @@ export default function Page() {
   // En modo carrusel la lista se duplica para que el desplazamiento continuo no tenga saltos.
   const carouselProjects = showAll ? projects : [...projects, ...projects]
   const suggestions = useMemo(() => query ? searchItems.filter((item) => item.label.toLowerCase().includes(query.toLowerCase())).slice(0, 5) : [], [query])
-  const goTo = (id: string) => { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); setQuery('') }
+  const goTo = (id: string) => { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); setQuery(''); setMenuOpen(false) }
 
   return <main>
-    <nav className="nav shell" aria-label="Navegación principal">
-      <a className="brand" href="#inicio" aria-label="Ir al inicio"><span>GM</span> Gilberto Monroy</a>
-      <div className="search-wrap"><label className="sr-only" htmlFor="site-search">Buscar en el portfolio</label><input id="site-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar sección o proyecto..." autoComplete="off" />{query && suggestions.length > 0 && <div className="suggestions">{suggestions.map((item) => <button key={`${item.label}-${item.id}`} onClick={() => goTo(item.id)}>{item.label}<Arrow /></button>)}</div>}{query && suggestions.length === 0 && <p className="search-error" role="alert">No encontramos “{query}”. Prueba con proyectos o habilidades.</p>}</div>
-      <button className="menu-button" aria-expanded={menuOpen} aria-controls="nav-links" onClick={() => setMenuOpen(!menuOpen)}>Menú</button>
-      <div id="nav-links" className={`nav-links ${menuOpen ? 'is-open' : ''}`}><a href="#sobre-mi">Sobre mí</a><a href="#proyectos">Proyectos</a><a href="#habilidades">Habilidades</a><a href="#tecnologias">Tecnologías</a><a href="#certificados">Certificados</a><a href="#contacto">Contacto</a><a className="github-button" href={githubUrl} target="_blank" rel="noreferrer"><GitHubMark /> GitHub</a></div>
-    </nav>
+    <header className="site-header">
+      <nav className="nav shell" aria-label="Navegación principal">
+        <a className="brand" href="#inicio" aria-label="Ir al inicio"><span className="brand-mark">&lt;GM /&gt;</span><span className="brand-text"><strong>Gilberto Monroy</strong><small>Backend Developer</small></span></a>
+        <div className="search-wrap">
+          <Search aria-hidden="true" size={15} />
+          <label className="sr-only" htmlFor="site-search">Buscar en el portfolio</label>
+          <input id="site-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar sección o proyecto..." autoComplete="off" />
+          {query && suggestions.length > 0 && <div className="suggestions">{suggestions.map((item) => <button key={`${item.label}-${item.id}`} onClick={() => goTo(item.id)}>{item.label}<ArrowRight size={14} /></button>)}</div>}
+          {query && suggestions.length === 0 && <p className="search-error" role="alert">No encontramos “{query}”. Prueba con proyectos o habilidades.</p>}
+        </div>
+        <button className="menu-button" aria-expanded={menuOpen} aria-controls="nav-links" aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={18} /> : <Menu size={18} />}</button>
+        <div id="nav-links" className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
+          {navLinks.map(([id, label]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}
+          <a className="button button-primary button-small" href="#contacto" onClick={() => setMenuOpen(false)}>Contrátame</a>
+        </div>
+      </nav>
+    </header>
 
-    <section id="inicio" className="hero shell"><div className="hero-copy"><p className="eyebrow"><span className="status-dot" /> Disponible para oportunidades junior</p><h1>Construyo soluciones digitales con <em>C# y .NET.</em></h1><p className="hero-text">Soy Gilberto Monroy, desarrollador backend junior en formación. Me gusta convertir ideas en productos funcionales, claros y bien estructurados.</p><div className="actions"><a className="button button-primary" href="#proyectos">Ver mis proyectos <Arrow /></a><a className="button button-ghost" href="/cv-gilberto-monroy.pdf" download>Descargar CV <span aria-hidden="true" className="arrow">↓</span></a></div><div className="social-row"><a href={linkedinUrl} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href={githubUrl} target="_blank" rel="noreferrer">GitHub <Arrow /></a><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp <Arrow /></a></div></div><div className="hero-card" aria-label="Perfil de desarrollador"><div className="card-top"><span>PROFILE / 2026</span><span>01 — 04</span></div><div className="monogram">GM</div><div className="card-bottom"><strong>Gilberto<br />Monroy</strong><span>Backend<br />Developer</span></div></div></section>
-    <div className="ticker" aria-hidden="true"><span>C#</span><span>.NET</span><span>ASP.NET CORE</span><span>SQL</span><span>GIT</span><span>APIs REST</span></div>
+    <section id="inicio" className="hero shell">
+      <div className="hero-copy">
+        <p className="status-pill"><span className="status-dot" /> Disponible para oportunidades junior</p>
+        <p className="hero-hello">Hola, soy</p>
+        <h1>Gilberto <span>Monroy</span></h1>
+        <p className="hero-role">Backend Developer <b>·</b> C# / .NET</p>
+        <p className="hero-text">Estudiante de Ingeniería especializado en backend. Diseño lógica de negocio, APIs y bases de datos con C#, ASP.NET y SQL, cuidando que el código sea claro, mantenible y fácil de escalar.</p>
+        <div className="actions">
+          <a className="button button-primary" href="#proyectos">Ver mis proyectos <ArrowRight size={16} /></a>
+          <a className="button button-ghost" href="/cv-gilberto-monroy.pdf" download="CV_Gilberto_Monroy.pdf">Descargar CV <Download size={16} /></a>
+        </div>
+        <div className="social-row">
+          <a href={githubUrl} target="_blank" rel="noreferrer"><BrandIcon name="github" /> GitHub</a>
+          <a href={linkedinUrl} target="_blank" rel="noreferrer"><BrandIcon name="linkedin" /> LinkedIn</a>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={16} /> WhatsApp</a>
+        </div>
+      </div>
+      <div className="hero-visual">
+        <div className="profile-frame"><img src="/profile.jpg" alt="Fotografía de Gilberto Monroy" /></div>
+        <p className="api-badge"><span className="method">GET</span> /api/gilberto <span className="ok">200 OK</span></p>
+        <CodeWindow />
+      </div>
+    </section>
 
-    <section id="sobre-mi" className="section shell split-section"><div><p className="section-label">01 / Sobre mí</p><h2>Aprender. Construir.<br /><em>Mejorar.</em></h2></div><div className="section-content"><p className="lead">Estoy buscando mi primera oportunidad profesional como estudiante de Ingeniería y desarrollador de software.</p><p>Quiero integrarme a un equipo donde pueda aportar, aprender de profesionales y crecer construyendo productos que importan. Mi enfoque está en backend con C# y .NET; disfruto entender problemas y resolverlos paso a paso.</p><div className="mini-facts"><div><strong>01</strong><span>Enfoque<br />Backend</span></div><div><strong>02</strong><span>Aprendizaje<br />constante</span></div><div><strong>03</strong><span>Trabajo<br />en equipo</span></div></div></div></section>
-    <section id="formacion" className="section shell education"><p className="section-label">02 / Formación</p><div className="education-row"><div><h3>Ingeniería / Desarrollo de Software</h3><p>Formación técnica y práctica en programación, bases de datos y desarrollo web.</p></div><span className="date">En curso</span></div><div className="education-row"><div><h3>Proyectos personales</h3><p>Construcción de aplicaciones para convertir conocimientos en experiencia demostrable.</p></div><span className="date">2024 — hoy</span></div></section>
+    <div className="tech-strip" aria-label="Tecnologías principales">
+      <div className="shell tech-strip-inner">{['C#', '.NET', 'ASP.NET', 'SQL', 'MySQL', 'Git', 'JavaScript'].map((name) => <span key={name}><img src={technologyDetails[name].logo} alt="" />{name}</span>)}</div>
+    </div>
 
-    <section id="proyectos" className="section shell projects"><div className="section-heading"><div><p className="section-label">03 / Proyectos</p><h2>Trabajo que habla<br /><em>por mí.</em></h2></div><button className="text-link view-all" onClick={() => setShowAll(!showAll)}>{showAll ? 'Ver carrusel' : 'Ver todo'} <Arrow /></button></div><div className={showAll ? 'project-list' : `carousel ${isPaused ? 'is-paused' : ''}`}><div className="project-grid" style={showAll ? undefined : { '--carousel-duration': `${projects.length * 11}s` } as CSSProperties}>{carouselProjects.map((project, index) => { const isClone = index >= projects.length; return <article className="project-card" key={`${project.number}-${index}`} aria-hidden={isClone || undefined} inert={isClone || undefined}><div className="project-image-wrap">{project.image ? <img src={project.image} alt={`Captura de ${project.title}`} /> : <div className="project-placeholder" aria-hidden="true"><span>{project.number}</span><strong>{project.title}</strong></div>}<div className="project-overlay"><span>Problema que resuelve</span><p>{project.problem}</p><span>Tecnologías</span><div className="tech-logos">{project.stack.map((item) => <span key={item} title={item}>{technologyLogos[item] ? <img src={technologyLogos[item]} alt="" /> : null}{item}</span>)}</div><a className="overlay-link" href={project.demo ?? project.repo} target="_blank" rel="noreferrer">{project.demo ? 'Ver en GitHub Pages ↗' : 'Ver código en GitHub ↗'}</a></div></div><div className="project-number">{project.number}</div><div className="project-meta">{project.type}</div><h3>{project.title}</h3><p>{project.description}</p><a className="project-link" href={project.repo} target="_blank" rel="noreferrer">Repositorio en GitHub <Arrow /></a></article> })}</div></div>{!showAll && <div className="carousel-controls"><button onClick={() => setIsPaused(!isPaused)} aria-pressed={isPaused} aria-label={isPaused ? 'Reanudar carrusel' : 'Pausar carrusel'}>{isPaused ? '▶' : '❚❚'}</button><span>{projects.length} proyectos · {isPaused ? 'Pausado' : 'Pasa el cursor para detener'}</span></div>}</section>
-    <section id="habilidades" className="section shell skills"><p className="section-label">04 / Habilidades</p><div className="skills-grid">{Object.entries(skills).map(([category, items]) => <div className="skill-group" key={category}><h3>{category}</h3><ul>{items.map((item) => <li key={item}>{item}{['MySQL', 'Entity Framework', 'JavaScript', 'ASP.NET MVC', 'APIs REST'].includes(item) && <small>En aprendizaje</small>}</li>)}</ul></div>)}</div></section>
-    <section id="tecnologias" className="section shell technologies"><div className="section-heading"><div><p className="section-label">05 / Stack técnico</p><h2>Herramientas para<br /><em>construir.</em></h2></div><p className="section-intro">Tecnologías que uso para transformar problemas en soluciones funcionales.</p></div><div className="technology-grid">{Object.entries(technologyDetails).map(([name, detail]) => <article className="technology-card" key={name}><img src={detail.logo} alt="" /><div><h3>{name}</h3><p>{detail.role}</p></div></article>)}</div></section>
-    <section id="certificados" className="section shell certificates"><div className="section-heading"><div><p className="section-label">06 / Certificados</p><h2>Aprendizaje<br /><em>comprobable.</em></h2></div><span className="certificate-count">{certificates.length} cursos con evidencia visual</span></div><div className="certificate-grid">{certificates.map((certificate, index) => <article className="certificate-card" key={certificate.title} tabIndex={0}><div className="certificate-preview"><img src={certificate.image} alt={`Imagen del certificado ${certificate.title}`} /><div className="certificate-overlay"><span>Habilidad aprendida</span><p>{certificate.skill}</p></div></div><span>{String(index + 1).padStart(2, '0')}</span><h3>{certificate.title}</h3><small>{certificate.skill}</small></article>)}</div></section>
-    <section id="contacto" className="contact shell"><div><p className="section-label">07 / Contacto</p><h2>¿Construimos algo<br /><em>juntos?</em></h2></div><div className="contact-copy"><p>Estoy abierto a conversar sobre oportunidades junior, proyectos y colaboraciones.</p><a className="email-link" href="mailto:gilbertoalejandromonroymorales@gmail.com">gilbertoalejandromonroymorales@gmail.com <Arrow /></a><div className="social-row"><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp <Arrow /></a><a href={linkedinUrl} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href={githubUrl} target="_blank" rel="noreferrer">GitHub <Arrow /></a></div></div></section>
-    <footer className="footer shell"><span>© 2026 Gilberto Monroy</span><span>Hecho con intención.</span><a href="#inicio">Volver arriba ↑</a></footer>
+    <section id="sobre-mi" className="section shell about">
+      <div className="about-copy">
+        <SectionLabel index="01">sobre-mí</SectionLabel>
+        <h2>Construyo el lado del software <em>que no se ve</em>, pero lo sostiene todo.</h2>
+        <p className="lead">Estoy buscando mi primera oportunidad profesional como desarrollador backend.</p>
+        <p>Quiero integrarme a un equipo donde pueda aportar, aprender de profesionales y crecer construyendo productos que importan. Disfruto entender un problema, modelar sus datos y resolverlo paso a paso con C# y .NET.</p>
+        <ul className="about-points">
+          <li><ShieldCheck size={16} /> Enfoque en código limpio y SOLID</li>
+          <li><Database size={16} /> Modelado y consultas SQL</li>
+          <li><Workflow size={16} /> Aprendizaje constante</li>
+          <li><Boxes size={16} /> Trabajo en equipo</li>
+        </ul>
+        <a className="button button-primary" href="/cv-gilberto-monroy.pdf" download="CV_Gilberto_Monroy.pdf">Descargar CV <Download size={16} /></a>
+      </div>
+      <aside className="info-card" aria-label="Datos de contacto">
+        <div><MapPin size={18} /><span><small>Ubicación</small>México · Remoto o presencial</span></div>
+        <div><Mail size={18} /><span><small>Email</small><a href="mailto:gilbertoalejandromonroymorales@gmail.com">gilbertoalejandromonroymorales@gmail.com</a></span></div>
+        <div><GraduationCap size={18} /><span><small>Formación</small>Ingeniería / Desarrollo de Software</span></div>
+        <div><Briefcase size={18} /><span><small>Busco</small>Primer puesto como Backend Developer Jr.</span></div>
+      </aside>
+    </section>
+
+    <section id="servicios" className="section shell">
+      <div className="section-heading centered">
+        <SectionLabel index="02">servicios</SectionLabel>
+        <h2>Lo que puedo aportar <em>a tu equipo</em></h2>
+      </div>
+      <div className="service-grid">{services.map(({ icon: Icon, title, text }) => <article className="service-card" key={title}><span className="service-icon"><Icon size={22} /></span><h3>{title}</h3><p>{text}</p></article>)}</div>
+    </section>
+
+    <section className="shell facts" aria-label="Datos en cifras">
+      {facts.map(({ value, label, icon: Icon }) => <div className="fact-card" key={label}><Icon size={22} /><strong>{value}</strong><span>{label}</span></div>)}
+    </section>
+
+    <section id="formacion" className="section shell education">
+      <SectionLabel index="03">formación</SectionLabel>
+      <div className="timeline">
+        <div className="timeline-item"><span className="date">En curso</span><div><h3>Ingeniería / Desarrollo de Software</h3><p>Formación técnica y práctica en programación, bases de datos y desarrollo web.</p></div></div>
+        <div className="timeline-item"><span className="date">2024 — hoy</span><div><h3>Proyectos personales</h3><p>Construcción de aplicaciones para convertir conocimientos en experiencia demostrable.</p></div></div>
+      </div>
+    </section>
+
+    <section id="proyectos" className="section shell projects">
+      <div className="section-heading">
+        <div>
+          <SectionLabel index="04">proyectos</SectionLabel>
+          <h2>Trabajo que habla <em>por mí</em></h2>
+          <p className="endpoint"><span className="method">GET</span> /api/projects <span className="ok">200 OK</span> <span className="muted">· {projects.length} resultados</span></p>
+        </div>
+        <button className="button button-ghost button-small" onClick={() => setShowAll(!showAll)}>{showAll ? 'Ver carrusel' : 'Ver todos'} <ArrowRight size={14} /></button>
+      </div>
+      <div className={showAll ? 'project-list' : `carousel ${isPaused ? 'is-paused' : ''}`}>
+        <div className="project-grid" style={showAll ? undefined : { '--carousel-duration': `${projects.length * 11}s` } as CSSProperties}>
+          {carouselProjects.map((project, index) => {
+            const isClone = index >= projects.length
+            return <article className="project-card" key={`${project.number}-${index}`} aria-hidden={isClone || undefined} inert={isClone || undefined}>
+              <div className="project-image-wrap">
+                {project.image ? <img src={project.image} alt={`Captura de ${project.title}`} /> : <div className="project-placeholder" aria-hidden="true"><div className="window-bar"><i /><i /><i /></div><code>&gt; {project.title.toLowerCase().replaceAll(' ', '-')}</code><strong>{project.title}</strong></div>}
+                <div className="project-overlay">
+                  <span>Problema que resuelve</span>
+                  <p>{project.problem}</p>
+                  <span>Tecnologías</span>
+                  <div className="tech-logos">{project.stack.map((item) => <span key={item} title={item}>{technologyLogos[item] ? <img src={technologyLogos[item]} alt="" /> : null}{item}</span>)}</div>
+                  <a className="overlay-link" href={project.demo ?? project.repo} target="_blank" rel="noreferrer">{project.demo ? 'Ver en GitHub Pages' : 'Ver código en GitHub'} <ArrowUpRight size={14} /></a>
+                </div>
+              </div>
+              <div className="project-meta"><span>{project.number}</span>{project.type}</div>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="project-stack">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
+              <a className="project-link" href={project.repo} target="_blank" rel="noreferrer"><BrandIcon name="github" /> Repositorio <ArrowUpRight size={14} /></a>
+            </article>
+          })}
+        </div>
+      </div>
+      {!showAll && <div className="carousel-controls"><button onClick={() => setIsPaused(!isPaused)} aria-pressed={isPaused} aria-label={isPaused ? 'Reanudar carrusel' : 'Pausar carrusel'}>{isPaused ? <Play size={14} /> : <Pause size={14} />}</button><span>{projects.length} proyectos · {isPaused ? 'Pausado' : 'Pasa el cursor para detener'}</span></div>}
+    </section>
+
+    <section id="habilidades" className="section shell skills-section">
+      <div className="skills-panel">
+        <SectionLabel index="05">habilidades</SectionLabel>
+        <h2>Mi stack <em>backend</em></h2>
+        <div className="skills-list">{Object.entries(skills).map(([category, items]) => <div className="skill-group" key={category}><h3>{category}</h3><ul>{items.map((item) => <li key={item}>{item}</li>)}</ul></div>)}</div>
+      </div>
+      <div id="tecnologias" className="tech-panel">
+        <SectionLabel index="06">tecnologías</SectionLabel>
+        <h2>Herramientas <em>que uso</em></h2>
+        <div className="technology-grid">{Object.entries(technologyDetails).map(([name, detail]) => <article className="technology-card" key={name}><img src={detail.logo} alt="" /><div><h3>{name}</h3><p>{detail.role}</p></div></article>)}</div>
+      </div>
+    </section>
+
+    <section id="certificados" className="section shell certificates">
+      <div className="section-heading">
+        <div><SectionLabel index="07">certificados</SectionLabel><h2>Aprendizaje <em>comprobable</em></h2></div>
+        <span className="certificate-count">{certificates.length} cursos con evidencia visual</span>
+      </div>
+      <div className="certificate-grid">{certificates.map((certificate, index) => <article className="certificate-card" key={certificate.title} tabIndex={0}><div className="certificate-preview"><img src={certificate.image} alt={`Imagen del certificado ${certificate.title}`} loading="lazy" /><div className="certificate-overlay"><span>Habilidad aprendida</span><p>{certificate.skill}</p></div></div><span className="certificate-number">{String(index + 1).padStart(2, '0')}</span><h3>{certificate.title}</h3><small>{certificate.skill}</small></article>)}</div>
+    </section>
+
+    <section id="contacto" className="section shell contact">
+      <div className="contact-card">
+        <SectionLabel index="08">contacto</SectionLabel>
+        <h2>¿Construimos algo <em>juntos?</em></h2>
+        <p>Estoy abierto a conversar sobre oportunidades junior, proyectos y colaboraciones.</p>
+        <ul className="contact-list">
+          <li><Mail size={18} /><a href="mailto:gilbertoalejandromonroymorales@gmail.com">gilbertoalejandromonroymorales@gmail.com</a></li>
+          <li><MessageCircle size={18} /><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a></li>
+          <li><BrandIcon name="linkedin" /><a href={linkedinUrl} target="_blank" rel="noreferrer">linkedin.com/in/gilberto-alejandro-monroy-morales</a></li>
+          <li><BrandIcon name="github" /><a href={githubUrl} target="_blank" rel="noreferrer">github.com/GilbertoMonroy67</a></li>
+          <li><MapPin size={18} /><span>México</span></li>
+        </ul>
+      </div>
+      <div className="quote-card">
+        <span className="brand-mark large">&lt;GM /&gt;</span>
+        <blockquote>“El código no es solo lo que escribo: es la forma en que <em>resuelvo problemas</em>.”</blockquote>
+        <p>— Gilberto Monroy</p>
+        <a className="button button-primary" href="mailto:gilbertoalejandromonroymorales@gmail.com">Escríbeme <Mail size={16} /></a>
+      </div>
+    </section>
+
+    <div className="principles"><div className="shell principles-inner">{principles.map(({ icon: Icon, label }) => <span key={label}><Icon size={18} />{label}</span>)}</div></div>
+    <footer className="footer shell"><span>© 2026 Gilberto Monroy · Backend Developer</span><a href="#inicio">Volver arriba ↑</a></footer>
   </main>
 }

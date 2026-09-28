@@ -13,3 +13,8 @@ __v0_jsx-dev-runtime.ts
 node_modules
 .next/
 .DS_Store
+# Build de Next.js (lo genera el workflow de GitHub Actions)
+out/
+
+# Metadatos de Windows al copiar archivos
+*Zone.Identifier

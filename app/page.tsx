@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState, type CSSProperties } from 'react'
 
 const linkedinUrl = 'https://www.linkedin.com/in/gilberto-alejandro-monroy-morales-230a97265/'
 const githubUrl = 'https://github.com/GilbertoMonroy67'
@@ -14,25 +14,25 @@ const skills = {
 
 const certificateImages = '/certificates/'
 const certificates = [
-  ['Curso de Buenas Prácticas y Código Limpio en C#', 'C#, Clean Code, principios SOLID', 'Curso de Buenas Practicas y Codigo Limpio en CSharp.jpg'],
-  ['Curso Básico de Programación con C#', 'C#, sintaxis, POO', 'Curso Basico de Programacion con Csharp.jpg'],
-  ['Curso de Pensamiento Lógico', 'Algoritmos y resolución de problemas', 'Curso_de_pensamiento_logico.png'],
-  ['Algoritmos y diagramas de flujo', 'Algoritmos, pseudocódigo y diagramación', 'algoritmosYDiagramasDeFlujo.jpeg'],
-  ['Manejo de datos, estructuras y funciones', 'Datos, estructuras y funciones', 'Curso de Pensamiento Logico Manejo de Datos, Estructuras y Funciones.jpg'],
-  ['Funciones y estructuras de control', 'Condicionales, ciclos y lógica', 'funcionesYEstructurasDeControl.jpeg'],
-  ['Lenguajes de programación', 'Fundamentos de programación', 'LenguajesDeProgramacion.jpeg'],
-  ['Curso de Bases de Datos con SQL', 'SQL, consultas y bases relacionales', 'Curso de Bases de Datos con SQL.jpg'],
-  ['Fundamentos de Bases de Datos', 'Modelado y conceptos de bases de datos', 'Curso_de_fundamentos_de_bases_de_datos.jpg'],
-  ['Fundamentos de Ingeniería de Software', 'Ciclo de vida y fundamentos de software', 'Curso de Fundamentos de Ingenieria de Software.jpg'],
-  ['Curso básico de JavaScript', 'JavaScript y programación web', 'basicoDeJavaScript.jpeg'],
-  ['Curso práctico de Frontend Developer', 'HTML5, CSS3 y frontend', 'Curso de Frontend Developer.png'],
-  ['Curso práctico de JavaScript', 'JavaScript práctico y DOM', 'practicoDeJavaScript.jpeg'],
-  ['Curso de React.js', 'React, componentes y UI', 'Curso de React.js.png'],
-  ['Curso de Webpack', 'Webpack y gestión de assets', 'Curso de Webpack.png'],
-  ['Introducción a la Terminal y Línea de Comandos', 'Terminal, CLI y productividad', 'Curso de Introduccion a la Terminal y Linea de Comandos.png'],
-  ['Introducción a la Inteligencia Artificial', 'Conceptos y aplicaciones de IA', 'Curso Gratis de Introduccion a la Inteligencia Artificial.png'],
-  ['Introducción a Ciberseguridad', 'Prevención y fundamentos de seguridad', 'Curso de Introduccion a Ciberseguridad_Prevencion de Ataques Informaticos.png'],
-].map(([title, skill, image]) => ({ title, skill, image: `${certificateImages}${encodeURI(image)}` }))
+  ['Curso de Buenas Prácticas y Código Limpio en C#', 'C#, Clean Code, principios SOLID', 'buenas-practicas-codigo-limpio-csharp.jpg'],
+  ['Curso Básico de Programación con C#', 'C#, sintaxis, POO', 'programacion-basica-csharp.jpg'],
+  ['Curso de Pensamiento Lógico', 'Algoritmos y resolución de problemas', 'pensamiento-logico.png'],
+  ['Algoritmos y diagramas de flujo', 'Algoritmos, pseudocódigo y diagramación', 'algoritmos-diagramas-de-flujo.jpeg'],
+  ['Manejo de datos, estructuras y funciones', 'Datos, estructuras y funciones', 'manejo-de-datos-estructuras-funciones.jpg'],
+  ['Funciones y estructuras de control', 'Condicionales, ciclos y lógica', 'funciones-estructuras-de-control.jpeg'],
+  ['Lenguajes de programación', 'Fundamentos de programación', 'lenguajes-de-programacion.jpeg'],
+  ['Curso de Bases de Datos con SQL', 'SQL, consultas y bases relacionales', 'bases-de-datos-sql.jpg'],
+  ['Fundamentos de Bases de Datos', 'Modelado y conceptos de bases de datos', 'fundamentos-bases-de-datos.jpg'],
+  ['Fundamentos de Ingeniería de Software', 'Ciclo de vida y fundamentos de software', 'fundamentos-ingenieria-de-software.jpg'],
+  ['Curso básico de JavaScript', 'JavaScript y programación web', 'javascript-basico.jpeg'],
+  ['Curso práctico de Frontend Developer', 'HTML5, CSS3 y frontend', 'frontend-developer.png'],
+  ['Curso práctico de JavaScript', 'JavaScript práctico y DOM', 'javascript-practico.jpeg'],
+  ['Curso de React.js', 'React, componentes y UI', 'react-js.png'],
+  ['Curso de Webpack', 'Webpack y gestión de assets', 'webpack.png'],
+  ['Introducción a la Terminal y Línea de Comandos', 'Terminal, CLI y productividad', 'terminal-linea-de-comandos.png'],
+  ['Introducción a la Inteligencia Artificial', 'Conceptos y aplicaciones de IA', 'introduccion-inteligencia-artificial.png'],
+  ['Introducción a Ciberseguridad', 'Prevención y fundamentos de seguridad', 'introduccion-ciberseguridad.png'],
+].map(([title, skill, image]) => ({ title, skill, image: `${certificateImages}${image}` }))
 
 const technologyDetails: Record<string, { logo: string; role: string }> = {
   'C#': { logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg', role: 'Lógica de negocio y POO' },
@@ -79,15 +79,10 @@ function GitHubMark() { return <span aria-hidden="true" className="github-mark">
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [query, setQuery] = useState('')
-  const [carouselIndex, setCarouselIndex] = useState(0)
   const [showAll, setShowAll] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
-  useEffect(() => {
-    if (showAll || isPaused) return
-    const timer = window.setInterval(() => setCarouselIndex((index) => (index + 1) % projects.length), 4000)
-    return () => window.clearInterval(timer)
-  }, [showAll, isPaused])
-  const moveCarousel = (direction: number) => setCarouselIndex((index) => (index + direction + projects.length) % projects.length)
+  // En modo carrusel la lista se duplica para que el desplazamiento continuo no tenga saltos.
+  const carouselProjects = showAll ? projects : [...projects, ...projects]
   const suggestions = useMemo(() => query ? searchItems.filter((item) => item.label.toLowerCase().includes(query.toLowerCase())).slice(0, 5) : [], [query])
   const goTo = (id: string) => { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); setQuery('') }
 
@@ -105,11 +100,11 @@ export default function Page() {
     <section id="sobre-mi" className="section shell split-section"><div><p className="section-label">01 / Sobre mí</p><h2>Aprender. Construir.<br /><em>Mejorar.</em></h2></div><div className="section-content"><p className="lead">Estoy buscando mi primera oportunidad profesional como estudiante de Ingeniería y desarrollador de software.</p><p>Quiero integrarme a un equipo donde pueda aportar, aprender de profesionales y crecer construyendo productos que importan. Mi enfoque está en backend con C# y .NET; disfruto entender problemas y resolverlos paso a paso.</p><div className="mini-facts"><div><strong>01</strong><span>Enfoque<br />Backend</span></div><div><strong>02</strong><span>Aprendizaje<br />constante</span></div><div><strong>03</strong><span>Trabajo<br />en equipo</span></div></div></div></section>
     <section id="formacion" className="section shell education"><p className="section-label">02 / Formación</p><div className="education-row"><div><h3>Ingeniería / Desarrollo de Software</h3><p>Formación técnica y práctica en programación, bases de datos y desarrollo web.</p></div><span className="date">En curso</span></div><div className="education-row"><div><h3>Proyectos personales</h3><p>Construcción de aplicaciones para convertir conocimientos en experiencia demostrable.</p></div><span className="date">2024 — hoy</span></div></section>
 
-    <section id="proyectos" className="section shell projects"><div className="section-heading"><div><p className="section-label">03 / Proyectos</p><h2>Trabajo que habla<br /><em>por mí.</em></h2></div><button className="text-link view-all" onClick={() => setShowAll(!showAll)}>{showAll ? 'Ver carrusel' : 'Ver todo'} <Arrow /></button></div><div className={showAll ? 'project-list' : 'carousel'} onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}><div className="project-grid" style={showAll ? undefined : { transform: `translateX(-${carouselIndex * (100 / projects.length)}%)` }}>{(showAll ? projects : projects).map((project) => <article className="project-card" key={project.number}><div className="project-image-wrap"><img src={project.image} alt={`Captura de ${project.title}`} /><div className="project-overlay"><span>Problema que resuelve</span><p>{project.problem}</p><span>Tecnologías</span><div className="tech-logos">{project.stack.map((item) => <span key={item} title={item}>{technologyLogos[item] ? <img src={technologyLogos[item]} alt="" /> : null}{item}</span>)}</div></div></div><div className="project-number">{project.number}</div><div className="project-meta">{project.type}</div><h3>{project.title}</h3><p>{project.description}</p><a className="project-link" href={project.url} target="_blank" rel="noreferrer">Repositorio / proyecto <Arrow /></a></article>)}</div>{!showAll && <div className="carousel-controls"><button onClick={() => moveCarousel(-1)} aria-label="Proyecto anterior">←</button><span>{carouselIndex + 1} / {projects.length} · {isPaused ? 'Pausado' : 'Deslizamiento automático'}</span><button onClick={() => moveCarousel(1)} aria-label="Proyecto siguiente">→</button></div>}</div></section>
+    <section id="proyectos" className="section shell projects"><div className="section-heading"><div><p className="section-label">03 / Proyectos</p><h2>Trabajo que habla<br /><em>por mí.</em></h2></div><button className="text-link view-all" onClick={() => setShowAll(!showAll)}>{showAll ? 'Ver carrusel' : 'Ver todo'} <Arrow /></button></div><div className={showAll ? 'project-list' : `carousel ${isPaused ? 'is-paused' : ''}`}><div className="project-grid" style={showAll ? undefined : { '--carousel-duration': `${projects.length * 11}s` } as CSSProperties}>{carouselProjects.map((project, index) => { const isClone = index >= projects.length; return <article className="project-card" key={`${project.number}-${index}`} aria-hidden={isClone || undefined} inert={isClone || undefined}><div className="project-image-wrap"><img src={project.image} alt={`Captura de ${project.title}`} /><div className="project-overlay"><span>Problema que resuelve</span><p>{project.problem}</p><span>Tecnologías</span><div className="tech-logos">{project.stack.map((item) => <span key={item} title={item}>{technologyLogos[item] ? <img src={technologyLogos[item]} alt="" /> : null}{item}</span>)}</div></div></div><div className="project-number">{project.number}</div><div className="project-meta">{project.type}</div><h3>{project.title}</h3><p>{project.description}</p><a className="project-link" href={project.url} target="_blank" rel="noreferrer">Repositorio / proyecto <Arrow /></a></article> })}</div></div>{!showAll && <div className="carousel-controls"><button onClick={() => setIsPaused(!isPaused)} aria-pressed={isPaused} aria-label={isPaused ? 'Reanudar carrusel' : 'Pausar carrusel'}>{isPaused ? '▶' : '❚❚'}</button><span>{projects.length} proyectos · {isPaused ? 'Pausado' : 'Pasa el cursor para detener'}</span></div>}</section>
     <section id="habilidades" className="section shell skills"><p className="section-label">04 / Habilidades</p><div className="skills-grid">{Object.entries(skills).map(([category, items]) => <div className="skill-group" key={category}><h3>{category}</h3><ul>{items.map((item) => <li key={item}>{item}{['MySQL', 'Entity Framework', 'JavaScript', 'ASP.NET MVC', 'APIs REST'].includes(item) && <small>En aprendizaje</small>}</li>)}</ul></div>)}</div></section>
     <section id="tecnologias" className="section shell technologies"><div className="section-heading"><div><p className="section-label">05 / Stack técnico</p><h2>Herramientas para<br /><em>construir.</em></h2></div><p className="section-intro">Tecnologías que uso para transformar problemas en soluciones funcionales.</p></div><div className="technology-grid">{Object.entries(technologyDetails).map(([name, detail]) => <article className="technology-card" key={name}><img src={detail.logo} alt="" /><div><h3>{name}</h3><p>{detail.role}</p></div></article>)}</div></section>
-    <section id="certificados" className="section shell certificates"><div className="section-heading"><div><p className="section-label">06 / Certificados</p><h2>Aprendizaje<br /><em>comportable.</em></h2></div><span className="certificate-count">{certificates.length} cursos con evidencia visual</span></div><div className="certificate-grid">{certificates.map((certificate, index) => <article className="certificate-card" key={certificate.title} tabIndex={0}><div className="certificate-preview"><img src={certificate.image} alt={`Imagen del certificado ${certificate.title}`} /><div className="certificate-overlay"><span>Habilidad aprendida</span><p>{certificate.skill}</p></div></div><span>{String(index + 1).padStart(2, '0')}</span><h3>{certificate.title}</h3><small>{certificate.skill}</small></article>)}</div></section>
-    <section id="contacto" className="contact shell"><div><p className="section-label">05 / Contacto</p><h2>¿Construimos algo<br /><em>juntos?</em></h2></div><div className="contact-copy"><p>Estoy abierto a conversar sobre oportunidades junior, proyectos y colaboraciones.</p><a className="email-link" href="mailto:gilbertoalejandromonroymorales@gmail.com">gilbertoalejandromonroymorales@gmail.com <Arrow /></a><div className="social-row"><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp <Arrow /></a><a href={linkedinUrl} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href={githubUrl} target="_blank" rel="noreferrer">GitHub <Arrow /></a></div></div></section>
+    <section id="certificados" className="section shell certificates"><div className="section-heading"><div><p className="section-label">06 / Certificados</p><h2>Aprendizaje<br /><em>comprobable.</em></h2></div><span className="certificate-count">{certificates.length} cursos con evidencia visual</span></div><div className="certificate-grid">{certificates.map((certificate, index) => <article className="certificate-card" key={certificate.title} tabIndex={0}><div className="certificate-preview"><img src={certificate.image} alt={`Imagen del certificado ${certificate.title}`} /><div className="certificate-overlay"><span>Habilidad aprendida</span><p>{certificate.skill}</p></div></div><span>{String(index + 1).padStart(2, '0')}</span><h3>{certificate.title}</h3><small>{certificate.skill}</small></article>)}</div></section>
+    <section id="contacto" className="contact shell"><div><p className="section-label">07 / Contacto</p><h2>¿Construimos algo<br /><em>juntos?</em></h2></div><div className="contact-copy"><p>Estoy abierto a conversar sobre oportunidades junior, proyectos y colaboraciones.</p><a className="email-link" href="mailto:gilbertoalejandromonroymorales@gmail.com">gilbertoalejandromonroymorales@gmail.com <Arrow /></a><div className="social-row"><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp <Arrow /></a><a href={linkedinUrl} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href={githubUrl} target="_blank" rel="noreferrer">GitHub <Arrow /></a></div></div></section>
     <footer className="footer shell"><span>© 2026 Gilberto Monroy</span><span>Hecho con intención.</span><a href="#inicio">Volver arriba ↑</a></footer>
   </main>
 }
